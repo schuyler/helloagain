@@ -25,9 +25,17 @@ export class HAContactPickerView extends Component {
   }
 
   loadData() {
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(CONTACT_FIXTURE)
-    });
+    var Contacts = require('react-native-contacts');
+    console.log("MODULE=", Contacts);
+    Contacts.getAll((err, contacts) => {
+      if(err && err.type === 'permissionDenied'){
+        console.log("permissionDenied on Contacts.getAll");
+      } else {
+        this.setState({
+          dataSource: this.state.dataSource.cloneWithRows(contacts)
+        });
+      }
+    })
   }
 
   render() {
