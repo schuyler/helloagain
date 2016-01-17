@@ -7,7 +7,8 @@ import React, {
   View,
   ListView,
   PropTypes,
-  StyleSheet
+  StyleSheet,
+  Image
 } from 'react-native';
 
 export class HAContactPickerView extends Component {
@@ -51,6 +52,7 @@ export class HAContactPickerView extends Component {
   renderContact(contact) {
     return (
       <View style={styles.contactRow}>
+        <Image style={styles.contactPicture} source={{uri:contact.thumbnailPath}} />
         <Text style={styles.contactName}>{contact.givenName} {contact.familyName}</Text>
       </View>
     );
@@ -61,15 +63,22 @@ HAContactPickerView.propTypes = { state: PropTypes.object };
 HAContactPickerView.defaultProps = { state: {} };
 
 const styles = StyleSheet.create({
+  contactPicture: {
+    height: 48,
+    width: 48,
+    backgroundColor: '#F5FCFF',
+    marginRight: 5,
+         },
   listView: {
     paddingTop: 20,
+    alignSelf: 'stretch',
     backgroundColor: '#F5FCFF',
   },
   contactRow: {
     flex: 1,
+    padding: 5,
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-start',
     backgroundColor: '#F5FCFF',
   },
   contactName: {
