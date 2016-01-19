@@ -50,9 +50,13 @@ export class HAContactPickerView extends Component {
   }
 
   renderContact(contact) {
+    var imageSource = {};
+    if (contact.thumbnailPath) {
+      imageSource.uri = contact.thumbnailPath;
+    }
     return (
       <View style={styles.contactRow}>
-        <Image style={styles.contactPicture} source={{uri:contact.thumbnailPath}} />
+        <Image style={styles.contactPicture} source={imageSource} />
         <Text style={styles.contactName}>{contact.givenName} {contact.familyName}</Text>
       </View>
     );
