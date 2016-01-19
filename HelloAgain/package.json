@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "react-native": "^0.18.0-rc",
-    "react-native-contacts": "^0.1.5"
+    "react-native-contacts": "rt2zz/react-native-contacts"
   }
 }
