@@ -8,6 +8,7 @@ import React, {
   ListView,
   PropTypes,
   StyleSheet,
+  TouchableHighlight,
   Image
 } from 'react-native';
 
@@ -27,7 +28,6 @@ export class HAContactPickerView extends Component {
 
   loadData() {
     var Contacts = require('react-native-contacts');
-    console.log("MODULE=", Contacts);
     Contacts.getAll((err, contacts) => {
       if(err && err.type === 'permissionDenied'){
         console.log("permissionDenied on Contacts.getAll");
@@ -39,11 +39,16 @@ export class HAContactPickerView extends Component {
     })
   }
 
+  toggleContact(contact) {
+    contact.isSelected = !contact.isSelected;
+    this.forceUpdate();
+  }
+
   render() {
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={this.renderContact}
+        renderRow={this.renderContact.bind(this)}
         style={styles.listView}
       />
     );
@@ -54,11 +59,15 @@ export class HAContactPickerView extends Component {
     if (contact.thumbnailPath) {
       imageSource.uri = contact.thumbnailPath;
     }
+    var toggleContact = this.toggleContact.bind(this, contact);
     return (
-      <View style={styles.contactRow}>
-        <Image style={styles.contactPicture} source={imageSource} />
-        <Text style={styles.contactName}>{contact.givenName} {contact.familyName}</Text>
-      </View>
+      <TouchableHighlight onPress={toggleContact}>
+        <View style={styles.contactRow}>
+          <Image style={styles.contactPicture} source={imageSource} />
+          <Text style={styles.contactName}>{contact.givenName} {contact.familyName}</Text>
+          <Text style={styles.contactSelected}>{contact.isSelected ? '✓' : ''}</Text>
+        </View>
+      </TouchableHighlight>
     );
   }
 }
@@ -72,7 +81,7 @@ const styles = StyleSheet.create({
     width: 48,
     backgroundColor: '#F5FCFF',
     marginRight: 5,
-         },
+  },
   listView: {
     paddingTop: 20,
     alignSelf: 'stretch',
@@ -82,14 +91,20 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 5,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-around',
     backgroundColor: '#F5FCFF',
   },
   contactName: {
+    marginBottom: 5,
+    textAlign: 'left',
     fontSize: 20,
-    marginBottom: 8,
-    textAlign: 'center',
+    flex: 5
   },
+  contactSelected: {
+    marginRight: 15,
+    textAlign: 'right',
+    fontSize: 25
+  }  
 });
 
 
