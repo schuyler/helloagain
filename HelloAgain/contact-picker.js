@@ -42,11 +42,11 @@ export class HAContactPickerView extends Component {
   }
 
   toggleContact(rowID) {
-    var contact = this.state.contacts[rowID];
+    var contact = Object.assign({}, this.state.contacts[rowID]);
+    contact.isSelected = !contact.isSelected;
     this.state.contacts = this.state.contacts.slice();
-    this.state.contacts[rowID] = { givenName: contact.givenName, familyName: contact.familyName, isSelected: !contact.isSelected };
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(this.state.contacts)
+    this.state.contacts[rowID] = contact;
+    this.setState({ dataSource: this.state.dataSource.cloneWithRows(this.state.contacts)
     });
   }
 
