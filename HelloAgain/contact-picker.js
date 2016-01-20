@@ -18,7 +18,8 @@ export class HAContactPickerView extends Component {
     this.state = {
       dataSource: new ListView.DataSource({
         rowHasChanged: (row1, row2) => row1 !== row2,
-      })
+      }),
+      contacts: []
     };
   }
 
@@ -33,15 +34,20 @@ export class HAContactPickerView extends Component {
         console.log("permissionDenied on Contacts.getAll");
       } else {
         this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(contacts)
+          dataSource: this.state.dataSource.cloneWithRows(contacts),
+          contacts: contacts
         });
       }
     })
   }
 
-  toggleContact(contact) {
-    contact.isSelected = !contact.isSelected;
-    this.forceUpdate();
+  toggleContact(rowID) {
+    var contact = this.state.contacts[rowID];
+    this.state.contacts = this.state.contacts.slice();
+    this.state.contacts[rowID] = { givenName: contact.givenName, familyName: contact.familyName, isSelected: !contact.isSelected };
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(this.state.contacts)
+    });
   }
 
   render() {
@@ -54,12 +60,12 @@ export class HAContactPickerView extends Component {
     );
   }
 
-  renderContact(contact) {
+  renderContact(contact, _, rowID) {
     var imageSource = {};
     if (contact.thumbnailPath) {
       imageSource.uri = contact.thumbnailPath;
     }
-    var toggleContact = this.toggleContact.bind(this, contact);
+    var toggleContact = this.toggleContact.bind(this, rowID);
     return (
       <TouchableHighlight onPress={toggleContact}>
         <View style={styles.contactRow}>
