@@ -17,7 +17,7 @@ export class HAContactPickerView extends Component {
     super(props);
     this.state = {
       dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1.recordID != row2.recordID,
+        rowHasChanged: (row1, row2) => row1 !== row2,
       })
     };
   }
