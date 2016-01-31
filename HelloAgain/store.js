@@ -10,7 +10,7 @@ export class Model {
     this.needsSync = false;
     this.eventHandler = eventHandler || (() => {});
     this.data = null;
-    this.hasLoaded = Store.get(this.name).then((data) => {
+    this.loading = Store.get(this.name).then((data) => {
       this.data = data || {};
       this.eventHandler(this.name, "ready");
     });
@@ -48,6 +48,7 @@ export class Model {
     for (let key in this.data) {
       items.push(this.data[key]);
     }
+    this.eventHandler(this.name, "all", items.length);
     return items;
   }
 
@@ -63,6 +64,10 @@ export class Model {
     this.data = {};
     this.eventHandler(this.name, "clear");
     return this.sync();
+  }
+
+  hasLoaded() {
+    return Promise.resolve(this.loading);
   }
 
   sync() {

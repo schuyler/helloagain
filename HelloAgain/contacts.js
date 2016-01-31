@@ -10,7 +10,7 @@ export function loadAllContacts() {
     // has loaded fully. Returns a Promise that is resolved when everything is
     // loaded.
     return new Promise((resolve, reject) => {
-      Friends.hasLoaded.then(() => {
+      Friends.hasLoaded().then(() => {
         AddressBook.getAll((err, contacts) => {
           if (err) {
             console.log("Reading addressbook failed:", err);
