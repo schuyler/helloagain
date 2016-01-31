@@ -11,12 +11,13 @@ import React, {
   View
 } from 'react-native';
 import { HAContactPickerView } from './contact-picker';
+import { HAFriendListView } from './friend-list';
 
 class HelloAgain extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <HAContactPickerView />
+        <HAFriendListView />
       </View>
     );
   }
