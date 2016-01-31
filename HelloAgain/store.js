@@ -12,7 +12,7 @@ export class Model {
     this.data = null;
     this.hasLoaded = Store.get(this.name).then((data) => {
       this.data = data || {};
-      this.eventHandler(this.name, "load");
+      this.eventHandler(this.name, "ready");
     });
     this.syncHandlerID = setInterval(() => {
       if (this.needsSync) {
@@ -54,6 +54,7 @@ export class Model {
   remove(key) {
     if (key in this.data) {
       delete this.data[key];
+      this.needsSync = true;
       this.eventHandler(this.name, "remove", key);
     }
   }
@@ -72,8 +73,9 @@ export class Model {
   }
 
   stop() {
+    this.sync();
     clearInterval(this.syncHandlerID);
     this.data = null;
-    this.eventHandler(this.name, "stop");
+    this.eventHandler(this.name, "stopped");
   }
 }
