@@ -20,13 +20,21 @@ export class HAFriendListView extends Component {
         rowHasChanged: (row1, row2) => row1 !== row2,
       })
     };
+    if (props.navigator) {
+      props.navigator.navigationContext.addListener('willfocus', () => {this._willFocus()});
+    }
   }
 
   componentWillMount() {
     this.loadData();
   }
 
-  alphaSort(a, b) {
+  _willFocus() {
+    // Probably changed while we were out to lunch
+    this.loadData();
+  }
+
+  _alphaSort(a, b) {
     if (a.givenName == b.givenName) {
       return (a.familyName < b.familyName) ? -1 : 1;
     } else {
@@ -35,8 +43,8 @@ export class HAFriendListView extends Component {
   }
 
   loadData() {
-    Friends.hasLoaded().then(() => {
-      let friends = Friends.all().sort(this.alphaSort);
+    return Friends.hasLoaded().then(() => {
+      let friends = Friends.find({isSelected: true}).sort(this._alphaSort);
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(friends)
       });
