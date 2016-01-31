@@ -11,6 +11,8 @@ import React, {
   TouchableHighlight,
   Image
 } from 'react-native';
+import { loadAllContacts } from './contacts';
+import { Friends } from './models';
 
 export class HAContactPickerView extends Component {
   constructor(props) {
@@ -28,25 +30,22 @@ export class HAContactPickerView extends Component {
   }
 
   loadData() {
-    var Contacts = require('react-native-contacts');
-    Contacts.getAll((err, contacts) => {
-      if(err && err.type === 'permissionDenied'){
-        console.log("permissionDenied on Contacts.getAll");
-      } else {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(contacts),
-          contacts: contacts
-        });
-      }
-    })
+    loadAllContacts().then((contacts) => {
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(contacts),
+        contacts: contacts
+      });
+    });
   }
 
   toggleContact(rowID) {
-    var contact = Object.assign({}, this.state.contacts[rowID]);
+    let contact = this.state.contacts[rowID];
     contact.isSelected = !contact.isSelected;
-    this.state.contacts = this.state.contacts.slice();
-    this.state.contacts[rowID] = contact;
-    this.setState({ dataSource: this.state.dataSource.cloneWithRows(this.state.contacts)
+    Friends.save(contact);
+    this.state.contacts = this.state.contacts.slice();       // DataSource needs a new list...
+    this.state.contacts[rowID] = Object.assign({}, contact); // ... and a wholly new object. WAT
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(this.state.contacts)
     });
   }
 
@@ -112,5 +111,3 @@ const styles = StyleSheet.create({
     fontSize: 25
   }  
 });
-
-
