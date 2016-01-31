@@ -8,6 +8,7 @@ import React, {
   ListView,
   PropTypes,
   StyleSheet,
+  TouchableHighlight,
   Image
 } from 'react-native';
 
@@ -16,8 +17,9 @@ export class HAContactPickerView extends Component {
     super(props);
     this.state = {
       dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1.recordID != row2.recordID,
-      })
+        rowHasChanged: (row1, row2) => row1 !== row2,
+      }),
+      contacts: []
     };
   }
 
@@ -27,38 +29,51 @@ export class HAContactPickerView extends Component {
 
   loadData() {
     var Contacts = require('react-native-contacts');
-    console.log("MODULE=", Contacts);
     Contacts.getAll((err, contacts) => {
       if(err && err.type === 'permissionDenied'){
         console.log("permissionDenied on Contacts.getAll");
       } else {
         this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(contacts)
+          dataSource: this.state.dataSource.cloneWithRows(contacts),
+          contacts: contacts
         });
       }
     })
+  }
+
+  toggleContact(rowID) {
+    var contact = Object.assign({}, this.state.contacts[rowID]);
+    contact.isSelected = !contact.isSelected;
+    this.state.contacts = this.state.contacts.slice();
+    this.state.contacts[rowID] = contact;
+    this.setState({ dataSource: this.state.dataSource.cloneWithRows(this.state.contacts)
+    });
   }
 
   render() {
     return (
       <ListView
         dataSource={this.state.dataSource}
-        renderRow={this.renderContact}
+        renderRow={this.renderContact.bind(this)}
         style={styles.listView}
       />
     );
   }
 
-  renderContact(contact) {
+  renderContact(contact, _, rowID) {
     var imageSource = {};
     if (contact.thumbnailPath) {
       imageSource.uri = contact.thumbnailPath;
     }
+    var toggleContact = this.toggleContact.bind(this, rowID);
     return (
-      <View style={styles.contactRow}>
-        <Image style={styles.contactPicture} source={imageSource} />
-        <Text style={styles.contactName}>{contact.givenName} {contact.familyName}</Text>
-      </View>
+      <TouchableHighlight onPress={toggleContact}>
+        <View style={styles.contactRow}>
+          <Image style={styles.contactPicture} source={imageSource} />
+          <Text style={styles.contactName}>{contact.givenName} {contact.familyName}</Text>
+          <Text style={styles.contactSelected}>{contact.isSelected ? '✓' : ''}</Text>
+        </View>
+      </TouchableHighlight>
     );
   }
 }
@@ -72,7 +87,7 @@ const styles = StyleSheet.create({
     width: 48,
     backgroundColor: '#F5FCFF',
     marginRight: 5,
-         },
+  },
   listView: {
     paddingTop: 20,
     alignSelf: 'stretch',
@@ -82,14 +97,20 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 5,
     flexDirection: 'row',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-around',
     backgroundColor: '#F5FCFF',
   },
   contactName: {
+    marginBottom: 5,
+    textAlign: 'left',
     fontSize: 20,
-    marginBottom: 8,
-    textAlign: 'center',
+    flex: 5
   },
+  contactSelected: {
+    marginRight: 15,
+    textAlign: 'right',
+    fontSize: 25
+  }  
 });
 
 
