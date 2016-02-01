@@ -1,6 +1,5 @@
 'use strict';
 
-import { CONTACT_FIXTURE } from './contact-fixture';
 import React, {
   Component,
   Text,
@@ -13,50 +12,28 @@ import React, {
 } from 'react-native';
 import { loadAllContacts } from './contacts';
 import { Friends } from './models';
+import { HAFriendListView, styles } from './friend-list';
 
-export class HAContactPickerView extends Component {
+export class HAContactPickerView extends HAFriendListView {
   constructor(props) {
     super(props);
-    this.state = {
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 !== row2,
-      }),
-      contacts: []
-    };
-  }
-
-  componentWillMount() {
-    this.loadData();
+    this.contacts = [];
   }
 
   loadData() {
     loadAllContacts().then((contacts) => {
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(contacts),
-        contacts: contacts
-      });
+      this.contacts = contacts;
+      this.setDataSource(contacts);
     });
   }
 
   toggleContact(rowID) {
-    let contact = this.state.contacts[rowID];
+    let contact = this.contacts[rowID];
     contact.isSelected = !contact.isSelected;
     Friends.save(contact);
-    this.state.contacts = this.state.contacts.slice();       // DataSource needs a new list...
-    this.state.contacts[rowID] = Object.assign({}, contact); // ... and a wholly new object. WAT
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(this.state.contacts)
-    });
-  }
-
-  render() {
-    return (
-      <ListView
-        dataSource={this.state.dataSource}
-        renderRow={this.renderContact.bind(this)}
-        style={styles.listView}
-      />
-    );
+    this.contacts = this.contacts.slice();
+    this.contacts[rowID] = Object.assign({}, contact);
+    this.setDataSource(this.contacts);
   }
 
   renderContact(contact, _, rowID) {
@@ -79,35 +56,3 @@ export class HAContactPickerView extends Component {
 
 HAContactPickerView.propTypes = { state: PropTypes.object };
 HAContactPickerView.defaultProps = { state: {} };
-
-const styles = StyleSheet.create({
-  contactPicture: {
-    height: 48,
-    width: 48,
-    backgroundColor: '#F5FCFF',
-    marginRight: 5,
-  },
-  listView: {
-    paddingTop: 20,
-    alignSelf: 'stretch',
-    backgroundColor: '#F5FCFF',
-  },
-  contactRow: {
-    flex: 1,
-    padding: 5,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: '#F5FCFF',
-  },
-  contactName: {
-    marginBottom: 5,
-    textAlign: 'left',
-    fontSize: 20,
-    flex: 5
-  },
-  contactSelected: {
-    marginRight: 15,
-    textAlign: 'right',
-    fontSize: 25
-  }  
-});

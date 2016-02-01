@@ -20,18 +20,23 @@ export class HAFriendListView extends Component {
         rowHasChanged: (row1, row2) => row1 !== row2,
       })
     };
-    if (props.navigator) {
-      props.navigator.navigationContext.addListener('willfocus', () => {this._willFocus()});
-    }
   }
 
   componentWillMount() {
+    this._mounted = true;
+    if (this.props.navigator) {
+      this.props.navigator.navigationContext.addListener('willfocus', () => { this._willFocus() });
+    }
     this.loadData();
   }
 
+  componentWillUnmount() {
+    this._mounted = false;
+  }
+
   _willFocus() {
-    // Probably changed while we were out to lunch
-    this.loadData();
+    // loadData() calls setState(), which throws a warning if we're not mounted.
+    if (this._mounted) this.loadData();
   }
 
   _alphaSort(a, b) {
@@ -45,9 +50,13 @@ export class HAFriendListView extends Component {
   loadData() {
     return Friends.hasLoaded().then(() => {
       let friends = Friends.find({isSelected: true}).sort(this._alphaSort);
-      this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(friends)
-      });
+      this.setDataSource(friends);
+    });
+  }
+
+  setDataSource(data) {
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(data)
     });
   }
 
@@ -79,7 +88,7 @@ export class HAFriendListView extends Component {
 HAFriendListView.propTypes = { state: PropTypes.object };
 HAFriendListView.defaultProps = { state: {} };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   contactPicture: {
     height: 48,
     width: 48,
