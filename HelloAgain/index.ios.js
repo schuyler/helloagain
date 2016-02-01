@@ -7,17 +7,43 @@ import React, {
   AppRegistry,
   Component,
   StyleSheet,
-  Text,
-  View
+  View,
+  NavigatorIOS
 } from 'react-native';
 import { HAContactPickerView } from './contact-picker';
+import { HAFriendListView } from './friend-list';
 
 class HelloAgain extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
+    let initialRoute = {
+      title: "Hello Again!",
+      component: HAFriendListView
+    };
+
+    let toContactPicker = () => {
+      let nav = this.refs.nav;
+      nav.push({
+        title: "Add Friends", 
+        component: HAContactPickerView, 
+        rightButtonTitle: null,
+        leftButtonTitle: "Back",
+        onLeftButtonPress: () => { nav.pop() }
+      })
+    };
+
     return (
-      <View style={styles.container}>
-        <HAContactPickerView />
-      </View>
+      <NavigatorIOS
+        ref="nav"
+        style={styles.container}
+        initialRoute={initialRoute}
+        rightButtonTitle="Contacts"
+        leftButtonTitle="Settings"
+        onRightButtonPress={toContactPicker}
+      />
     );
   }
 }
@@ -25,20 +51,8 @@ class HelloAgain extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    backgroundColor: '#ffffff'
+  }
 });
 
 AppRegistry.registerComponent('HelloAgain', () => HelloAgain);

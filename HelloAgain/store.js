@@ -10,7 +10,7 @@ export class Model {
     this.needsSync = false;
     this.eventHandler = eventHandler || (() => {});
     this.data = null;
-    this.hasLoaded = Store.get(this.name).then((data) => {
+    this.loading = Store.get(this.name).then((data) => {
       this.data = data || {};
       this.eventHandler(this.name, "ready");
     });
@@ -29,26 +29,44 @@ export class Model {
     this.eventHandler(this.name, "save", item);
   }
 
+  _copy(key) {
+    // Make a shallow copy of a stored value
+    return Object.assign({}, this.data[key]);
+  }
+
   load(key) {
     if (this.data) {
       this.eventHandler(this.name, "load", key);
-      return this.data[key];
+      return this._copy(key);
     } else {
       this.eventHandler(this.name, "race");
       return null;
     }
   }
 
-  all() {
+  find(filter) {
     if (!this.data) {
       this.eventHandler(this.name, "race");
       return null;
     }
     let items = [];
     for (let key in this.data) {
-      items.push(this.data[key]);
+      add_item: {
+        for (let field in filter) {
+          if (this.data[key][field] !== filter[field]) {
+            break add_item;
+          }
+        }
+        items.push(this._copy(key));
+      }
     }
+    this.eventHandler(this.name, "all", items.length);
     return items;
+  }
+
+  all() {
+    // find() sans filter
+    return this.find();
   }
 
   remove(key) {
@@ -63,6 +81,10 @@ export class Model {
     this.data = {};
     this.eventHandler(this.name, "clear");
     return this.sync();
+  }
+
+  hasLoaded() {
+    return Promise.resolve(this.loading);
   }
 
   sync() {
