@@ -3,8 +3,10 @@
 import { InteractionManager } from 'react-native';
 let Store = require('react-native-simple-store');
 
+const DEFAULT_SYNC_INTERVAL = 5000; // milliseconds
+
 export class Model {
-  constructor(name, key, eventHandler, syncPeriod) {
+  constructor(name, key, eventHandler, syncInterval) {
     this.name = name;
     this.key = key;
     this.needsSync = false;
@@ -20,7 +22,7 @@ export class Model {
           this.sync();
         });
       }
-    }, syncPeriod || 5.0);
+    }, syncInterval || DEFAULT_SYNC_INTERVAL);
   }
 
   save(item) {
