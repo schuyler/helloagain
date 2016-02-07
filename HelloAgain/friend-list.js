@@ -10,7 +10,6 @@ import React, {
   TouchableHighlight,
   Image
 } from 'react-native';
-import { Friends } from './models';
 
 export class FriendList extends Component {
   constructor(props) {
@@ -20,10 +19,12 @@ export class FriendList extends Component {
         rowHasChanged: (row1, row2) => row1 !== row2,
       })
     };
+    let store = this.props.store;
+    store.subscribe(() => { this.refreshData(store) });
   }
 
   componentWillMount() {
-    this.loadData();
+    this.refreshData(this.props.store);
   }
 
   _alphaSort(a, b) {
@@ -34,30 +35,19 @@ export class FriendList extends Component {
     }
   }
 
-  loadData() {
-    if (this.props.dataSource) {
-      return this.props.dataSource().then((friends) => {
-        this.setDataSource(friends);
-      });
-    } else {
-      return Friends.hasLoaded().then(() => {
-        let friends = Friends.find({isSelected: true}).sort(this._alphaSort);
-        console.log("found", friends.size, "friends");
-        this.setDataSource(friends);
-      });
-    }
-  }
-
-  setDataSource(data) {
+  refreshData(store) {
+    let state = store.getState();
+    let model = state[this.props.model];
+    let items = Object.values(model).filter((item) => item.isSelected);
+    items.sort(this._alphaSort);
     this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(data)
+      dataSource: this.state.dataSource.cloneWithRows(items)
     });
   }
 
   render() {
     return (
       <ListView
-        dataSource={this.state.dataSource}
         renderRow={this.renderContact.bind(this)}
         style={styles.listView}
       />
@@ -88,7 +78,7 @@ export class FriendList extends Component {
 }
 
 FriendList.propTypes = { state: PropTypes.object };
-FriendList.defaultProps = { state: {} };
+FriendList.defaultProps = { state: {}, model: "friends" };
 
 export const styles = StyleSheet.create({
   contactPicture: {

@@ -8,6 +8,8 @@
   "dependencies": {
     "react-native": "^0.18.0-rc",
     "react-native-contacts": "rt2zz/react-native-contacts",
-    "react-native-simple-store": "^0.1.0"
+    "react-native-fm-picker": "0.0.4",
+    "react-native-simple-store": "^0.1.0",
+    "redux": "^3.3.1"
   }
 }
