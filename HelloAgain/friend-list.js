@@ -12,7 +12,7 @@ import React, {
 } from 'react-native';
 import { Friends } from './models';
 
-export class HAFriendListView extends Component {
+export class FriendList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,20 +23,7 @@ export class HAFriendListView extends Component {
   }
 
   componentWillMount() {
-    this._mounted = true;
-    if (this.props.navigator) {
-      this.props.navigator.navigationContext.addListener('willfocus', () => { this._willFocus() });
-    }
     this.loadData();
-  }
-
-  componentWillUnmount() {
-    this._mounted = false;
-  }
-
-  _willFocus() {
-    // loadData() calls setState(), which throws a warning if we're not mounted.
-    if (this._mounted) this.loadData();
   }
 
   _alphaSort(a, b) {
@@ -48,10 +35,17 @@ export class HAFriendListView extends Component {
   }
 
   loadData() {
-    return Friends.hasLoaded().then(() => {
-      let friends = Friends.find({isSelected: true}).sort(this._alphaSort);
-      this.setDataSource(friends);
-    });
+    if (this.props.dataSource) {
+      return this.props.dataSource().then((friends) => {
+        this.setDataSource(friends);
+      });
+    } else {
+      return Friends.hasLoaded().then(() => {
+        let friends = Friends.find({isSelected: true}).sort(this._alphaSort);
+        console.log("found", friends.size, "friends");
+        this.setDataSource(friends);
+      });
+    }
   }
 
   setDataSource(data) {
@@ -70,23 +64,31 @@ export class HAFriendListView extends Component {
     );
   }
 
+  onPress(contact, rowID) {
+    if (this.props.onPress) {
+      this.props.onPress(contact, rowID);
+    }
+  }
+
   renderContact(contact, _, rowID) {
     var imageSource = {};
     if (contact.thumbnailPath) {
       imageSource.uri = contact.thumbnailPath;
     }
     return (
-      <View style={styles.contactRow}>
-        <Image style={styles.contactPicture} source={imageSource} />
-        <Text style={styles.contactName}>{contact.givenName} {contact.familyName}</Text>
-        <Text style={styles.contactSelected}></Text>
-      </View>
+      <TouchableHighlight onPress={() => this.onPress(contact, rowID)}>
+        <View style={styles.contactRow}>
+          <Image style={styles.contactPicture} source={imageSource} />
+          <Text style={styles.contactName}>{contact.givenName} {contact.familyName}</Text>
+          <Text style={styles.contactSelected}>{contact.isSelected ? '✓' : ''}</Text>
+        </View>
+      </TouchableHighlight>
     );
   }
 }
 
-HAFriendListView.propTypes = { state: PropTypes.object };
-HAFriendListView.defaultProps = { state: {} };
+FriendList.propTypes = { state: PropTypes.object };
+FriendList.defaultProps = { state: {} };
 
 export const styles = StyleSheet.create({
   contactPicture: {

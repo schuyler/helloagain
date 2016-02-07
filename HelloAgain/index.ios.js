@@ -8,10 +8,11 @@ import React, {
   Component,
   StyleSheet,
   View,
-  NavigatorIOS
+  NavigatorIOS,
+  AlertIOS
 } from 'react-native';
-import { HAContactPickerView } from './contact-picker';
-import { HAFriendListView } from './friend-list';
+import { ContactPicker } from './contact-picker';
+import { FriendList } from './friend-list';
 
 class HelloAgain extends Component {
   constructor(props) {
@@ -21,14 +22,14 @@ class HelloAgain extends Component {
   render() {
     let initialRoute = {
       title: "Hello Again!",
-      component: HAFriendListView
+      component: FriendList
     };
 
     let toContactPicker = () => {
       let nav = this.refs.nav;
       nav.push({
         title: "Add Friends", 
-        component: HAContactPickerView, 
+        component: ContactPicker, 
         rightButtonTitle: null,
         leftButtonTitle: "Back",
         onLeftButtonPress: () => { nav.pop() }
