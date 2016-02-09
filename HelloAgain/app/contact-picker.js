@@ -4,7 +4,16 @@ import { connect } from 'react-redux';
 import { updateActivity } from './actions';
 import { ContactList } from './contact-list';
 
-const mapStateToProps = ({contacts}) => ({contacts});
+const dataSource = new ListView.DataSource({
+  rowHasChanged: (r1, r2) => r1 !== r2,
+});
+
+const mapStateToProps = ({contacts}) => {
+  return {
+    dataSource: dataSource.cloneWithRows(contacts),
+    contacts
+  };
+}
 
 const mapDispatchToProps = (dispatch) => {
   return {

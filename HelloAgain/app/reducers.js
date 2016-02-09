@@ -10,7 +10,7 @@ function importContactList(state, contactList) {
   let newContacts = {...state.contacts};
   for (let contact of contactList) {
     const id = getRecordID(contact);
-    const activity = state.activity[id];
+    const activity = state.activity[id] || {};
     newContacts[id] = {...state.contacts[id], ...contact, activity};
   }
   return {...state, contacts: newContacts};
