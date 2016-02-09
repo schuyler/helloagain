@@ -1,3 +1,4 @@
+'use strict';
 
 import * as storage from 'redux-storage'
 import createEngine from 'redux-storage/engines/reactNativeAsyncStorage';
@@ -7,14 +8,14 @@ import { createStore, applyMiddleware } from 'redux';
 const AddressBook = require('react-native-contacts');
 
 import * as actions from './actions';
-import * as reducers from './reducers';
+import { mainReducer } from './reducers';
 
 // Now it's time to decide which storage engine should be used
 // Note: The arguments to `createEngine` are different for every engine!
 let engine = createEngine('helloagain');
 
 // Use this decorator to write only part of your state tree to disk.
-engine = storage.decorators.filter(engine, ['friends', 'settings']);
+engine = storage.decorators.filter(engine, ['activity', 'settings']);
 
 // This decorator will delay the expensive save operation for the given ms.
 // Every new change to the state tree will reset the timeout!
@@ -33,11 +34,11 @@ const middleware = storage.createMiddleware(engine, [actions.IMPORT_CONTACTS]);
 //
 // Note: The reducer does nothing special! It just listens for the LOAD
 //       action and merge in the provided state :)
-const reducer = storage.reducer(composeReducers(reducers));
+const reducer = storage.reducer(mainReducer);
 
 // As everything is prepared, we can go ahead and combine all parts as usual
 const createStoreWithMiddleware = applyMiddleware(middleware)(createStore);
-const store = createStoreWithMiddleware(reducer);
+export const store = createStoreWithMiddleware(reducer);
 
 // To load the previous state we create a loader function with our prepared
 // engine. The result is a function that can be used on any store object you

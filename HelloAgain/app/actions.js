@@ -1,6 +1,6 @@
 export const IMPORT_CONTACTS = 'IMPORT_CONTACTS';
 
-export const UPDATE_FRIEND = 'UPDATE_FRIEND';
+export const UPDATE_ACTIVITY = 'UPDATE_ACTIVITY';
 
 export const FRIEND_CONTACTED = 'FRIEND_CONTACTED';
 
@@ -10,6 +10,6 @@ export function importContacts(contactList) {
   return { type: IMPORT_CONTACTS, contactList };
 }
 
-export function updateFriend(friend) {
-  return { type: UPDATE_FRIEND, friend };
+export function updateActivity(activity) {
+  return { type: UPDATE_ACTIVITY, activity };
 }

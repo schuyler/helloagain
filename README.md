@@ -11,13 +11,14 @@ HelloAgain is built on React Native and is designed around Redux.
 
 ```
 {
-  contacts: { recordID1: { ... }, ... },
-  friends: { recordID1: { ... }, ... },
+  contacts: { recordID1: { ..., activity: {...} }, ... },
+  activity: { recordID1: { ... }, ... },
   settings: { ... }
 }
 ```
 
-* Every change to `friends` should trigger a merge of that object to the corresponding object in `contacts`
+* The `activity` object tracks the app's internal state for each contact.
+* Every change to `activity` should update the reference on the corresponding object in `contacts`
 * `contacts` should NOT be persisted -- we do not want to duplicate the entire addressbook
 
 ## Components

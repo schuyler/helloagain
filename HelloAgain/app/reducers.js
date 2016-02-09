@@ -1,3 +1,5 @@
+'use strict';
+
 import * as type from './actions';
 
 function getRecordID(contact) {
@@ -8,7 +10,8 @@ function importContactList(state, contactList) {
   let newContacts = {...state.contacts};
   for (let contact of contactList) {
     const id = getRecordID(contact);
-    newContacts[id] = {...state.friends[id], ...state.contacts[id], ...contact};
+    const activity = state.activity[id];
+    newContacts[id] = {...state.contacts[id], ...contact, activity};
   }
   return {...state, contacts: newContacts};
 }
@@ -18,21 +21,19 @@ function mergeRecord(table, record) {
   return {...table, [id]: {...table[id], ...record}};
 }
 
-export function contacts(state = {}, action) {
+function updateActivity(state, activity) {
+  return {...state,
+    contacts: mergeRecord(state.contacts, {activity}),
+    activity: mergeRecord(state.activity, activity)
+  };
+}
+
+export function mainReducer(state = {}, action) {
   switch (action.type) {
     case type.IMPORT_CONTACTS:
       return importContactList(state, action.contactList);
-    case type.UPDATE_FRIEND:
-      return mergeRecord(state, action.friend);
-    default:
-      return state;
-  }
-}
-
-export function friends(state = {}, action) {
-  switch (action.type) {
-    case type.UPDATE_FRIEND:
-      return mergeRecord(state, action.friend);
+    case type.UPDATE_ACTIVITY:
+      return updateActivity(state, action.activity);
     default:
       return state;
   }
