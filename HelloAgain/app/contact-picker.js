@@ -26,7 +26,8 @@ const mapStateToProps = ({contacts}) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onContactClick: (contact) => {
-      dispatch(updateActivity({isActive: !contact.activity.isActive}));
+      const newActivity = {...contact.activity, isActive: !contact.activity.isActive};
+      dispatch(updateActivity(newActivity));
     }
   }
 }
