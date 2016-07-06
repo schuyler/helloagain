@@ -2,11 +2,13 @@
 
 import * as type from './actions';
 
+const RECORD_ID = "recordID";
+
 // Helper for finding the contact / activity record ID. TODO: change this
 // eventually, because recordIDs are documented not to be persistent when
 // moving an addressbook to another device.
 function getRecordID(contact) {
-  return contact.recordID;
+  return contact[RECORD_ID];
 }
 
 // Handler for importing a list of contacts from the addressbook, merging them
@@ -39,7 +41,7 @@ function mergeRecord(table, record) {
 function updateActivity(state, record) {
   const id = getRecordID(record);
   const activity = mergeRecord(state.activity, record);
-  const contacts = mergeRecord(state.contacts, activity[id]);
+  const contacts = mergeRecord(state.contacts, {[RECORD_ID]: id, activity: activity[id]});
   return {...state, contacts, activity};
 }
 
