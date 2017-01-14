@@ -1,49 +1,32 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
+ * @flow
  */
-'use strict';
-import React, {
+
+import React, { Component } from 'react';
+import {
   AppRegistry,
-  Component,
   StyleSheet,
-  View,
-  NavigatorIOS
+  Text,
+  View
 } from 'react-native';
-import { HAContactPickerView } from './contact-picker';
-import { HAFriendListView } from './friend-list';
 
-class HelloAgain extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+export default class HelloAgain extends Component {
   render() {
-    let initialRoute = {
-      title: "Hello Again!",
-      component: HAFriendListView
-    };
-
-    let toContactPicker = () => {
-      let nav = this.refs.nav;
-      nav.push({
-        title: "Add Friends", 
-        component: HAContactPickerView, 
-        rightButtonTitle: null,
-        leftButtonTitle: "Back",
-        onLeftButtonPress: () => { nav.pop() }
-      })
-    };
-
     return (
-      <NavigatorIOS
-        ref="nav"
-        style={styles.container}
-        initialRoute={initialRoute}
-        rightButtonTitle="Contacts"
-        leftButtonTitle="Settings"
-        onRightButtonPress={toContactPicker}
-      />
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Text style={styles.instructions}>
+          To get started, edit index.ios.js
+        </Text>
+        <Text style={styles.instructions}>
+          Press Cmd+R to reload,{'\n'}
+          Cmd+D or shake for dev menu
+        </Text>
+      </View>
     );
   }
 }
@@ -51,8 +34,20 @@ class HelloAgain extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff'
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
 });
 
 AppRegistry.registerComponent('HelloAgain', () => HelloAgain);
