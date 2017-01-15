@@ -1,0 +1,8 @@
+exports[`updateFriend should return an action 1`] = `
+Object {
+  "friend": Object {
+    "name": "Bob",
+  },
+  "type": "UPDATE_FRIEND",
+}
+`;
