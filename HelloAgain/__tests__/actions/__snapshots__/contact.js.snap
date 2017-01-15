@@ -1,0 +1,8 @@
+exports[`toggleActive should return an action 1`] = `
+Object {
+  "friend": Object {
+    "name": "Bob",
+  },
+  "type": "TOGGLE_ACTIVE",
+}
+`;
