@@ -15,8 +15,12 @@
     "babel-cli": "^6.18.0",
     "babel-jest": "18.0.0",
     "babel-preset-react-native": "1.9.1",
+    "enzyme": "^2.7.0",
     "jest": "18.1.0",
-    "react-test-renderer": "15.4.2"
+    "react-addons-test-utils": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-test-renderer": "15.4.2",
+    "sinon": "^1.17.7"
   },
   "jest": {
     "preset": "react-native"
