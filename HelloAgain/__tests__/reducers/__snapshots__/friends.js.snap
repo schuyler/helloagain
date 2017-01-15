@@ -1,0 +1,29 @@
+exports[`friends reducer toggleActive action should toggle a new friend active 1`] = `
+Object {
+  "50": Object {
+    "isActive": true,
+    "name": "Bob",
+    "recordID": 50,
+  },
+}
+`;
+
+exports[`friends reducer toggleActive action should toggle an existing friend (in)active 1`] = `
+Object {
+  "50": Object {
+    "isActive": false,
+    "name": "Bob",
+    "recordID": 50,
+  },
+}
+`;
+
+exports[`friends reducer toggleActive action should toggle an existing friend (in)active 2`] = `
+Object {
+  "50": Object {
+    "isActive": true,
+    "name": "Bob",
+    "recordID": 50,
+  },
+}
+`;
