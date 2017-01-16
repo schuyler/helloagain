@@ -15,16 +15,17 @@ export default class Contact extends Component {
   }
 
   render() {
+    const item = this.props.item;
     var imageSource = {};
-    if (this.props.thumbnailPath) {
-      imageSource.uri = this.props.thumbnailPath
+    if (item.thumbnailPath) {
+      imageSource.uri = item.thumbnailPath
     }
     return (
-      <TouchableHighlight onPress={() => this.props.onPress(this.props)}>
+      <TouchableHighlight onPress={() => this.props.onPress(item)}>
         <View style={styles.contactRow}>
           <Image style={styles.contactPicture} source={imageSource} />
-          <Text style={styles.contactName}>{this.props.givenName} {this.props.familyName}</Text>
-          <Text style={styles.contactActive}>{this.props.isActive ? '✓' : ''}</Text>
+          <Text style={styles.contactName}>{item.givenName} {item.familyName}</Text>
+          <Text style={styles.contactActive}>{item.isActive ? '✓' : ''}</Text>
         </View>
       </TouchableHighlight>
     )
