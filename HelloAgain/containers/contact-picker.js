@@ -1,13 +1,20 @@
 'use strict'
 
-// import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import ContactList from '../components/contact-list'
 import { toggleActive } from '../actions/contact'
 
 const mapStateToProps = (state) => {
+  const contacts = Object.values(state.friends)
+  contacts.sort((a, b) => {
+    if (a.givenName == b.givenName) {
+      return (a.familyName < b.familyName) ? -1 : 1;
+    } else {
+      return (a.givenName < b.givenName) ? -1 : 1;
+    }
+  })
   return {
-    items: state.contacts
+    items: contacts
   }
 }
 
@@ -15,7 +22,6 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onContactPress: (item) => { dispatch(toggleActive(item)) }
   }
-  // return bindActionCreators(ContactActions, dispatch)
 }
 
 const ContactPicker = connect(mapStateToProps, mapDispatchToProps)(ContactList)

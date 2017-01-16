@@ -1,3 +1,95 @@
+exports[`test picks up a sorted list of contacts from the store 1`] = `
+Array [
+  Object {
+    "familyName": "Messier",
+    "givenName": "Charles",
+    "recordID": 6,
+  },
+  Object {
+    "familyName": "Tombaugh",
+    "givenName": "Clyde",
+    "recordID": 3,
+  },
+  Object {
+    "familyName": "Klumpke",
+    "givenName": "Dorothea",
+    "recordID": 15,
+  },
+  Object {
+    "familyName": "Hubble",
+    "givenName": "Edwin",
+    "recordID": 10,
+  },
+  Object {
+    "familyName": "Herzsprung",
+    "givenName": "Ejnar",
+    "recordID": 9,
+  },
+  Object {
+    "familyName": "Struve",
+    "givenName": "Gustav Wilhelm Ludvig",
+    "recordID": 16,
+  },
+  Object {
+    "familyName": "Leavitt",
+    "givenName": "Henrietta",
+    "middleName": "Swan",
+    "recordID": 7,
+  },
+  Object {
+    "familyName": "Oort",
+    "givenName": "Jan",
+    "recordID": 14,
+  },
+  Object {
+    "familyName": "Kepler",
+    "givenName": "Johannes",
+    "recordID": 12,
+  },
+  Object {
+    "familyName": "Herschel",
+    "givenName": "John",
+    "recordID": 5,
+  },
+  Object {
+    "familyName": "Lalande",
+    "givenName": "Jérôme",
+    "recordID": 8,
+  },
+  Object {
+    "familyName": "Wolf",
+    "givenName": "Max",
+    "recordID": 17,
+  },
+  Object {
+    "familyName": "Humason",
+    "givenName": "Milton",
+    "middleName": "L.",
+    "recordID": 13,
+  },
+  Object {
+    "familyName": "Copernicus",
+    "givenName": "Nicolaus",
+    "recordID": 1,
+  },
+  Object {
+    "familyName": "Brahe",
+    "givenName": "Tycho",
+    "recordID": 2,
+  },
+  Object {
+    "familyName": "Rubin",
+    "givenName": "Vera",
+    "recordID": 11,
+  },
+  Object {
+    "familyName": "Herschel",
+    "givenName": "William",
+    "recordID": 4,
+  },
+]
+`;
+
 exports[`test renders a list of contacts 1`] = `
 <ScrollView
   dataSource={
@@ -74,75 +166,9 @@ exports[`test renders a list of contacts 1`] = `
             "textAlign": "left",
           }
         }>
-        Nicolaus
+        Charles
          
-        Copernicus
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 25,
-            "marginRight": 15,
-            "textAlign": "right",
-          }
-        }>
-        
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#F5FCFF",
-          "flex": 1,
-          "flexDirection": "row",
-          "justifyContent": "space-around",
-          "padding": 5,
-        }
-      }>
-      <Image
-        source={Object {}}
-        style={undefined} />
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "flex": 5,
-            "fontSize": 20,
-            "marginBottom": 5,
-            "textAlign": "left",
-          }
-        }>
-        Tycho
-         
-        Brahe
+        Messier
       </Text>
       <Text
         accessible={true}
@@ -272,9 +298,9 @@ exports[`test renders a list of contacts 1`] = `
             "textAlign": "left",
           }
         }>
-        William
+        Dorothea
          
-        Herschel
+        Klumpke
       </Text>
       <Text
         accessible={true}
@@ -338,207 +364,9 @@ exports[`test renders a list of contacts 1`] = `
             "textAlign": "left",
           }
         }>
-        John
+        Edwin
          
-        Herschel
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 25,
-            "marginRight": 15,
-            "textAlign": "right",
-          }
-        }>
-        
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#F5FCFF",
-          "flex": 1,
-          "flexDirection": "row",
-          "justifyContent": "space-around",
-          "padding": 5,
-        }
-      }>
-      <Image
-        source={Object {}}
-        style={undefined} />
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "flex": 5,
-            "fontSize": 20,
-            "marginBottom": 5,
-            "textAlign": "left",
-          }
-        }>
-        Charles
-         
-        Messier
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 25,
-            "marginRight": 15,
-            "textAlign": "right",
-          }
-        }>
-        
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#F5FCFF",
-          "flex": 1,
-          "flexDirection": "row",
-          "justifyContent": "space-around",
-          "padding": 5,
-        }
-      }>
-      <Image
-        source={Object {}}
-        style={undefined} />
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "flex": 5,
-            "fontSize": 20,
-            "marginBottom": 5,
-            "textAlign": "left",
-          }
-        }>
-        Henrietta
-         
-        Leavitt
-      </Text>
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "fontSize": 25,
-            "marginRight": 15,
-            "textAlign": "right",
-          }
-        }>
-        
-      </Text>
-    </View>
-  </View>
-  <View
-    accessibilityComponentType={undefined}
-    accessibilityLabel={undefined}
-    accessibilityTraits={undefined}
-    accessible={true}
-    hitSlop={undefined}
-    onLayout={undefined}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
-    }
-    testID={undefined}>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#F5FCFF",
-          "flex": 1,
-          "flexDirection": "row",
-          "justifyContent": "space-around",
-          "padding": 5,
-        }
-      }>
-      <Image
-        source={Object {}}
-        style={undefined} />
-      <Text
-        accessible={true}
-        allowFontScaling={true}
-        ellipsizeMode="tail"
-        style={
-          Object {
-            "flex": 5,
-            "fontSize": 20,
-            "marginBottom": 5,
-            "textAlign": "left",
-          }
-        }>
-        Jérôme
-         
-        Lalande
+        Hubble
       </Text>
       <Text
         accessible={true}
@@ -668,9 +496,273 @@ exports[`test renders a list of contacts 1`] = `
             "textAlign": "left",
           }
         }>
-        Edwin
+        Gustav Wilhelm Ludvig
          
-        Hubble
+        Struve
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 25,
+            "marginRight": 15,
+            "textAlign": "right",
+          }
+        }>
+        
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#F5FCFF",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-around",
+          "padding": 5,
+        }
+      }>
+      <Image
+        source={Object {}}
+        style={undefined} />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "flex": 5,
+            "fontSize": 20,
+            "marginBottom": 5,
+            "textAlign": "left",
+          }
+        }>
+        Henrietta
+         
+        Leavitt
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 25,
+            "marginRight": 15,
+            "textAlign": "right",
+          }
+        }>
+        
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#F5FCFF",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-around",
+          "padding": 5,
+        }
+      }>
+      <Image
+        source={Object {}}
+        style={undefined} />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "flex": 5,
+            "fontSize": 20,
+            "marginBottom": 5,
+            "textAlign": "left",
+          }
+        }>
+        Jan
+         
+        Oort
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 25,
+            "marginRight": 15,
+            "textAlign": "right",
+          }
+        }>
+        
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#F5FCFF",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-around",
+          "padding": 5,
+        }
+      }>
+      <Image
+        source={Object {}}
+        style={undefined} />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "flex": 5,
+            "fontSize": 20,
+            "marginBottom": 5,
+            "textAlign": "left",
+          }
+        }>
+        Johannes
+         
+        Kepler
+      </Text>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 25,
+            "marginRight": 15,
+            "textAlign": "right",
+          }
+        }>
+        
+      </Text>
+    </View>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+        },
+        undefined,
+      ]
+    }
+    testID={undefined}>
+    <View
+      style={
+        Object {
+          "backgroundColor": "#F5FCFF",
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "space-around",
+          "padding": 5,
+        }
+      }>
+      <Image
+        source={Object {}}
+        style={undefined} />
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "flex": 5,
+            "fontSize": 20,
+            "marginBottom": 5,
+            "textAlign": "left",
+          }
+        }>
+        John
+         
+        Herschel
       </Text>
       <Text
         accessible={true}
