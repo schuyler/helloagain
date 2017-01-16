@@ -20,16 +20,17 @@ const queueTail = (state) => {
   return Math.max(0, ...ranks)
 }
 
-const defaults = (state) => {
+const defaultValues = (state) => {
   return {
-    rank: queueTail(state) + 1
+    rank: queueTail(state) + 1,
+    isActive: false
   }
 }
 
 const updateFriend = (state, update, useDefaults) => {
   let id = _id(update)
-  let existing = state[id] || (useDefaults ? defaults(state) : {})
-  let newFriend = {...existing, ...update}
+  let defaults = useDefaults ? defaultValues(state) : undefined
+  let newFriend = {...defaults, ...state[id], ...update}
   return {...state, [id]: newFriend}
 }
 
