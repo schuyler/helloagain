@@ -7,7 +7,7 @@ import configureStore from 'redux-mock-store'
 
 import { TOGGLE_ACTIVE } from "../../actions/types"
 import ContactPicker from "../../containers/contact-picker"
-import FRIENDS_FIXTURE from "../fixtures/friends"
+import { FRIENDS_FIXTURE } from "../fixtures/friends"
 
 const mockStore = configureStore([])
 const store = mockStore({friends: FRIENDS_FIXTURE})
