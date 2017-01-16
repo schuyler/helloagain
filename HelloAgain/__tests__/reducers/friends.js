@@ -6,6 +6,7 @@ import * as contactActions from '../../actions/contact'
 
 describe('friends reducer', () => {
   let bob = {name: "Bob", recordID: 50}
+  let jim = {name: "Jim", recordID: 42}
 
   it('should return an initial state', () => {
     expect(
@@ -31,8 +32,7 @@ describe('friends reducer', () => {
       expect(newState).toMatchObject({50: {...bob, ...newFact}})
     })
 
-    let jim = {name: "Jim", recordID: 42};
-    it('should add a new friend at the front', () => {
+    it('should add a new friend', () => {
       expect(
         friends(initialState, actions.updateFriend(jim))
       ).toEqual({50: bob, 42: jim})
@@ -40,8 +40,9 @@ describe('friends reducer', () => {
   })
 
   describe('toggleActive action', () => {
-    it('should toggle a new friend active', () => {
+    it('should toggle a new friend active and set default', () => {
       let state = friends(undefined, contactActions.toggleActive(bob))
+      state = friends(state, contactActions.toggleActive(jim))
       expect(state).toMatchSnapshot()
     })
 

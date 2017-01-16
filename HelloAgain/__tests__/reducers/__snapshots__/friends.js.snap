@@ -1,8 +1,15 @@
-exports[`friends reducer toggleActive action should toggle a new friend active 1`] = `
+exports[`friends reducer toggleActive action should toggle a new friend active and set default 1`] = `
 Object {
+  "42": Object {
+    "isActive": true,
+    "name": "Jim",
+    "rank": 2,
+    "recordID": 42,
+  },
   "50": Object {
     "isActive": true,
     "name": "Bob",
+    "rank": 1,
     "recordID": 50,
   },
 }
