@@ -12,14 +12,14 @@ import Contact from "../../components/contact"
 it('renders a contact', () => {
   let fixture = CONTACT_FIXTURE[0]
   expect(renderer.create(
-    <Contact {...fixture} />
+    <Contact item={fixture} />
   )).toMatchSnapshot();
 })
 
 it('renders an active contact', () => {
   let fixture = {...CONTACT_FIXTURE[0], isActive: true}
   expect(renderer.create(
-    <Contact {...fixture} />
+    <Contact item={fixture} />
   )).toMatchSnapshot();
 })
 
@@ -27,7 +27,7 @@ it('provides its props when pressed', () => {
   const fixture = CONTACT_FIXTURE[0]
   const onPress = sinon.spy()
   const wrapper = shallow(
-    <Contact {...fixture} onPress={onPress} />
+    <Contact item={fixture} onPress={onPress} />
   )
   wrapper.simulate("press")
   expect(onPress.calledOnce).toBe(true)

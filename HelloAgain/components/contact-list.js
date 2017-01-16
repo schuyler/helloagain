@@ -16,7 +16,7 @@ export default class ContactList extends Component {
 
   renderContact(rowData) {
     return (
-      <Contact {...rowData} onPress={this.props.onContactPress} />
+      <Contact item={rowData} onPress={this.props.onContactPress} />
     )
   }
 
