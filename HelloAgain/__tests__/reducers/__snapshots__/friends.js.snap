@@ -20,6 +20,7 @@ Object {
   "50": Object {
     "isActive": false,
     "name": "Bob",
+    "rank": 1,
     "recordID": 50,
   },
 }
@@ -30,6 +31,7 @@ Object {
   "50": Object {
     "isActive": true,
     "name": "Bob",
+    "rank": 1,
     "recordID": 50,
   },
 }
