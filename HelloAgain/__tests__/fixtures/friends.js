@@ -2,7 +2,10 @@
 
 import {CONTACT_FIXTURE} from "./contacts"
 
-const FRIENDS_FIXTURE = {}
-CONTACT_FIXTURE.forEach((item) => {FRIENDS_FIXTURE[item.recordID] = item})
+export const copyFriendsFixture = () => {
+  const fixture = {}
+  CONTACT_FIXTURE.forEach((item) => {fixture[item.recordID] = {...item}})
+  return fixture
+}
 
-export default FRIENDS_FIXTURE
+export const FRIENDS_FIXTURE = copyFriendsFixture()
