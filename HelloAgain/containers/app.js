@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { NavigatorIOS } from 'react-native';
 
 import store from '../store'
+import { loadNativeContacts } from '../actions/contact-import'
 import ContactPicker from './contact-picker'
 import FriendQueue from './friend-queue'
 import FriendView from './friend-view'
@@ -10,6 +11,10 @@ import FriendView from './friend-view'
 export default class HelloAgain extends Component {
   constructor(props) {
     super(props)
+  }
+
+  componentWillMount() {
+    store.dispatch(loadNativeContacts())
   }
 
   pickContacts() {
