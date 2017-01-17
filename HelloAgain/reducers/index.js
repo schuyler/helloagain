@@ -2,9 +2,11 @@
 
 import { combineReducers } from 'redux'
 import friends from './friends'
+import contactImport from './contact-import'
 
 const mainReducer = combineReducers({
-  friends
+  friends,
+  contactImport
 })
 
 export default mainReducer
