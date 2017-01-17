@@ -39,6 +39,18 @@ describe('friends reducer', () => {
     })
   })
 
+  describe('markAsContacted action', () => {
+    let initialState = friends(
+      undefined,
+      actions.updateFriend({...bob, rank: 12})
+    )
+    it('should update rank and contactedAt', () => {
+      let newState = friends(initialState, actions.markAsContacted(bob))
+      expect(newState[bob.recordID].contactedAt).toBeTruthy()
+      expect(newState[bob.recordID].rank).toEqual(13)
+    })
+  })
+
   describe('toggleActive action', () => {
     it('should toggle a new friend active and set default', () => {
       let state = friends(undefined, contactActions.toggleActive(bob))

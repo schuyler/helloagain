@@ -2,7 +2,8 @@
 
 import { 
   UPDATE_FRIEND,
-  TOGGLE_ACTIVE
+  TOGGLE_ACTIVE,
+  MARK_AS_CONTACTED
 } from '../actions/types';
 
 const _id = (friend) => {
@@ -27,6 +28,14 @@ const defaultValues = (state) => {
   }
 }
 
+const markContacted = (state, friend) => {
+  return {
+    ...friend,
+    rank: queueTail(state) + 1,
+    contactedAt: Date.now()
+  }
+}
+
 const updateFriend = (state, update, useDefaults) => {
   let id = _id(update)
   let defaults = useDefaults ? defaultValues(state) : undefined
@@ -42,6 +51,9 @@ const friends = (state = {}, action) => {
       let update = {...action.friend, isActive: !isActive}
       // Set default values (if needed) when toggling a friend
       return updateFriend(state, update, true)
+    case MARK_AS_CONTACTED:
+      let asContacted = markContacted(state, action.friend)
+      return updateFriend(state, asContacted)
     case UPDATE_FRIEND:
       return updateFriend(state, action.friend)
     default:
