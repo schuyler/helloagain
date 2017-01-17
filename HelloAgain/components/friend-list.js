@@ -13,7 +13,7 @@ import Friend from './friend'
 export default class FriendList extends ContactList {
   renderContact(rowData) {
     return (
-      <Friend item={rowData} />
+      <Friend item={rowData} onPress={this.props.onContactPress}/>
     )
   }
 

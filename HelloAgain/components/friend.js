@@ -22,7 +22,7 @@ export default class Friend extends Component {
     }
     // FIXME: showing the item rank is a placeholder -- replace later
     return (
-      <TouchableHighlight>
+      <TouchableHighlight onPress={() => this.props.onPress(item)}>
         <View style={styles.contactRow}>
           <Image style={styles.contactPicture} source={imageSource} />
           <Text style={styles.contactName}>{item.givenName} {item.familyName}</Text>
