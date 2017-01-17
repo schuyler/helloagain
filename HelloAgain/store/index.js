@@ -7,9 +7,6 @@ import { AsyncStorage } from 'react-native'
 import { onlyActivatedFriends } from './filter'
 import mainReducer from '../reducers'
 
-// Purely for testing new components. Will be removed later.
-// import initialState from './store-scaffold'
-
 const enhancers = compose(
   applyMiddleware(thunk),
   autoRehydrate()
