@@ -1,6 +1,7 @@
 'use strict'
 
 import { connect } from 'react-redux'
+import { markAsContacted } from '../actions/friend'
 import FriendDetail from '../components/friend-detail'
 
 const mapStateToProps = (state) => {
@@ -10,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onContactedPress: (item) => {}
+    onContactedPress: item => dispatch(markAsContacted(item))
   }
 }
 

@@ -101,3 +101,16 @@ exports[`test frienders 1`] = `
   </View>
 </View>
 `;
+
+exports[`test marks a friend contacted 1`] = `
+Array [
+  Object {
+    "friend": Object {
+      "familyName": "Copernicus",
+      "givenName": "Nicolaus",
+      "recordID": 1,
+    },
+    "type": "MARK_AS_CONTACTED",
+  },
+]
+`;
