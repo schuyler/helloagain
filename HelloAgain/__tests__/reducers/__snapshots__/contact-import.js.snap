@@ -1,0 +1,13 @@
+exports[`contactImport reducer should record failed import 1`] = `
+Object {
+  "error": "no idea why not",
+  "loaded": false,
+}
+`;
+
+exports[`contactImport reducer should record successful import 1`] = `
+Object {
+  "count": 17,
+  "loaded": true,
+}
+`;
