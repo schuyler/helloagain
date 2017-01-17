@@ -16,11 +16,12 @@ export default class FriendDetail extends Component {
     if (item.thumbnailPath) {
       imageSource.uri = item.thumbnailPath
     }
+    let contactedAt = item.contactedAt ? Date(item.contactedAt).toString() : "unknown"
     return (
         <View style={styles.friendDetail}>
           <Image style={styles.friendPicture} source={imageSource} />
           <Text style={styles.friendName}>{item.givenName} {item.familyName}</Text>
-          <Text style={styles.friendContent}>Last contacted: {item.lastContactedAt || "unknown"}</Text>
+          <Text style={styles.friendContent}>Last contacted: {contactedAt}</Text>
           <Button 
             style={styles.contactedButton}
             onPress={_ => {
