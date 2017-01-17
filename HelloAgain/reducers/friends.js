@@ -3,6 +3,7 @@
 import { 
   UPDATE_FRIEND,
   TOGGLE_ACTIVE,
+  CONTACTS_LOADED,
   MARK_AS_CONTACTED
 } from '../actions/types';
 
@@ -43,8 +44,19 @@ const updateFriend = (state, update, useDefaults) => {
   return {...state, [id]: newFriend}
 }
 
+const importContacts = (state, contacts) => {
+  let newState = {...state}
+  contacts.forEach((item) => {
+    let id = _id(item)
+    newState[id] = {...item, ...state[id]}
+  })
+  return newState
+}
+
 const friends = (state = {}, action) => {
   switch (action.type) {
+    case CONTACTS_LOADED:
+      return importContacts(state, action.contacts)
     case TOGGLE_ACTIVE:
       let existingFriend = findFriend(state, action.friend)
       let isActive = (existingFriend ? existingFriend.isActive : false)
