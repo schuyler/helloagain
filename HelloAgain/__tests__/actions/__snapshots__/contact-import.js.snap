@@ -1,0 +1,19 @@
+exports[`contactLoadFailed should return an action 1`] = `
+Object {
+  "error": "no idea why not",
+  "type": "CONTACT_LOAD_FAILED",
+}
+`;
+
+exports[`contactsLoaded should return an action 1`] = `
+Object {
+  "contacts": Array [
+    Object {
+      "name": "Bob",
+    },
+  ],
+  "type": "CONTACTS_LOADED",
+}
+`;
+
+exports[`loadNativeContacts should return a thunk 1`] = `[Function]`;

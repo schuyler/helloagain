@@ -1,5 +1,9 @@
 'use strict'
 
+// Native contact import
+export const CONTACTS_LOADED = 'CONTACTS_LOADED'
+export const CONTACT_LOAD_FAILED = 'CONTACT_LOAD_FAILED'
+
 // Contacts
 export const TOGGLE_ACTIVE = 'TOGGLE_ACTIVE'
 
