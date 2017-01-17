@@ -1,0 +1,103 @@
+exports[`test frienders 1`] = `
+<View
+  style={
+    Object {
+      "alignSelf": "center",
+      "flex": 1,
+      "flexDirection": "column",
+      "margin": 64,
+      "paddingTop": 64,
+      "width": 200,
+    }
+  }>
+  <Image
+    source={Object {}}
+    style={
+      Object {
+        "borderColor": "grey",
+        "borderWidth": 1,
+        "flex": 1,
+        "height": 128,
+        "margin": 32,
+        "width": 128,
+      }
+    } />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "flex": 1,
+        "fontSize": 24,
+        "fontWeight": "bold",
+        "textAlign": "center",
+      }
+    }>
+    Nicolaus
+     
+    Copernicus
+  </Text>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "flex": 1,
+        "fontSize": 14,
+        "textAlign": "justify",
+      }
+    }>
+    Last contacted: 
+    unknown
+  </Text>
+  <View
+    accessibilityComponentType="button"
+    accessibilityLabel={undefined}
+    accessibilityTraits={
+      Array [
+        "button",
+      ]
+    }
+    accessible={true}
+    hitSlop={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID={undefined}>
+    <View
+      style={
+        Array [
+          Object {},
+        ]
+      }>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Array [
+            Object {
+              "color": "#0C42FD",
+              "fontSize": 18,
+              "padding": 8,
+              "textAlign": "center",
+            },
+          ]
+        }>
+        Contacted
+      </Text>
+    </View>
+  </View>
+</View>
+`;
