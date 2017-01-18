@@ -5,9 +5,11 @@ import {
   Text,
   View,
   StyleSheet,
-  TouchableHighlight,
+  TouchableOpacity,
   Image
 } from 'react-native'
+import Portrait from './portrait'
+import shared from './shared'
 
 export default class Friend extends Component {
   constructor(props) {
@@ -16,44 +18,27 @@ export default class Friend extends Component {
 
   render() {
     const item = this.props.item;
-    var imageSource = {};
-    if (item.thumbnailPath) {
-      imageSource.uri = item.thumbnailPath
-    }
     // FIXME: showing the item rank is a placeholder -- replace later
     return (
-      <TouchableHighlight onPress={() => this.props.onPress(item)}>
+      <TouchableOpacity onPress={() => this.props.onPress(item)}>
         <View style={styles.contactRow}>
-          <Image style={styles.contactPicture} source={imageSource} />
+          <Portrait uri={item.thumbnailPath} style={styles.contactPicture} />
           <Text style={styles.contactName}>{item.givenName} {item.familyName}</Text>
           <Text style={styles.contactRank}>{item.rank || "???"}</Text>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     )
   }
 }
 
 // This really wants to be refactored somehow with the contact styles
 const styles = StyleSheet.create({
-  contactRow: {
-    flex: 1,
-    padding: 5,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF'
-  },
-  contactName: {
-    textAlign: 'left',
-    fontSize: 20,
-    flex: 15,
-    marginBottom: 5
-  },
+  contactRow: shared.row,
+  contactPicture: shared.rowPicture,
+  contactName: shared.rowName,
   contactRank: {
-    textAlign: 'right',
-    marginRight: 5,
-    fontSize: 15,
-    flex: 1,
-    marginBottom: 5
+    ...shared.rowProps,
+    fontSize: shared.rowProps.fontSize - 10,
+    color: "grey"
   }  
 })

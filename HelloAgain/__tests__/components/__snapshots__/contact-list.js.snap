@@ -5,6 +5,7 @@ exports[`test renders a list of contacts 1`] = `
       "items": 17,
     }
   }
+  enableEmptySections={true}
   initialListSize={10}
   onContentSizeChange={[Function]}
   onEndReachedThreshold={1000}
@@ -17,14 +18,13 @@ exports[`test renders a list of contacts 1`] = `
   pageSize={1}
   removeClippedSubviews={true}
   renderRow={[Function]}
+  renderSeparator={[Function]}
   scrollEventThrottle={50}
   scrollRenderAheadDistance={1000}
   stickyHeaderIndices={Array []}
   style={
     Object {
-      "alignSelf": "stretch",
-      "backgroundColor": "#ffffff",
-      "paddingTop": 20,
+      "flex": 1,
     }
   }>
   <View
@@ -41,27 +41,38 @@ exports[`test renders a list of contacts 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
     testID={undefined}>
     <View
       style={
         Object {
-          "backgroundColor": "#F5FCFF",
+          "alignItems": "center",
           "flex": 1,
           "flexDirection": "row",
           "justifyContent": "space-around",
-          "padding": 5,
+          "padding": 10,
         }
       }>
-      <Image
-        source={Object {}}
-        style={undefined} />
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Object {
+              "flex": 1,
+              "height": 32,
+              "width": 32,
+            }
+          }
+          uri={undefined} />
+      </View>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -70,7 +81,6 @@ exports[`test renders a list of contacts 1`] = `
           Object {
             "flex": 5,
             "fontSize": 20,
-            "marginBottom": 5,
             "textAlign": "left",
           }
         }>
@@ -84,15 +94,25 @@ exports[`test renders a list of contacts 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "fontSize": 25,
-            "marginRight": 15,
+            "color": "lightgrey",
+            "flex": 1,
+            "fontSize": 24,
+            "marginRight": 5,
             "textAlign": "right",
           }
         }>
-        
+        ★
       </Text>
     </View>
   </View>
+  <View
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "flex": 1,
+      }
+    } />
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
@@ -107,27 +127,38 @@ exports[`test renders a list of contacts 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
     testID={undefined}>
     <View
       style={
         Object {
-          "backgroundColor": "#F5FCFF",
+          "alignItems": "center",
           "flex": 1,
           "flexDirection": "row",
           "justifyContent": "space-around",
-          "padding": 5,
+          "padding": 10,
         }
       }>
-      <Image
-        source={Object {}}
-        style={undefined} />
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Object {
+              "flex": 1,
+              "height": 32,
+              "width": 32,
+            }
+          }
+          uri={undefined} />
+      </View>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -136,7 +167,6 @@ exports[`test renders a list of contacts 1`] = `
           Object {
             "flex": 5,
             "fontSize": 20,
-            "marginBottom": 5,
             "textAlign": "left",
           }
         }>
@@ -150,15 +180,25 @@ exports[`test renders a list of contacts 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "fontSize": 25,
-            "marginRight": 15,
+            "color": "lightgrey",
+            "flex": 1,
+            "fontSize": 24,
+            "marginRight": 5,
             "textAlign": "right",
           }
         }>
-        
+        ★
       </Text>
     </View>
   </View>
+  <View
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "flex": 1,
+      }
+    } />
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
@@ -173,27 +213,38 @@ exports[`test renders a list of contacts 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
     testID={undefined}>
     <View
       style={
         Object {
-          "backgroundColor": "#F5FCFF",
+          "alignItems": "center",
           "flex": 1,
           "flexDirection": "row",
           "justifyContent": "space-around",
-          "padding": 5,
+          "padding": 10,
         }
       }>
-      <Image
-        source={Object {}}
-        style={undefined} />
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Object {
+              "flex": 1,
+              "height": 32,
+              "width": 32,
+            }
+          }
+          uri={undefined} />
+      </View>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -202,7 +253,6 @@ exports[`test renders a list of contacts 1`] = `
           Object {
             "flex": 5,
             "fontSize": 20,
-            "marginBottom": 5,
             "textAlign": "left",
           }
         }>
@@ -216,15 +266,25 @@ exports[`test renders a list of contacts 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "fontSize": 25,
-            "marginRight": 15,
+            "color": "lightgrey",
+            "flex": 1,
+            "fontSize": 24,
+            "marginRight": 5,
             "textAlign": "right",
           }
         }>
-        
+        ★
       </Text>
     </View>
   </View>
+  <View
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "flex": 1,
+      }
+    } />
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
@@ -239,27 +299,38 @@ exports[`test renders a list of contacts 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
     testID={undefined}>
     <View
       style={
         Object {
-          "backgroundColor": "#F5FCFF",
+          "alignItems": "center",
           "flex": 1,
           "flexDirection": "row",
           "justifyContent": "space-around",
-          "padding": 5,
+          "padding": 10,
         }
       }>
-      <Image
-        source={Object {}}
-        style={undefined} />
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Object {
+              "flex": 1,
+              "height": 32,
+              "width": 32,
+            }
+          }
+          uri={undefined} />
+      </View>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -268,7 +339,6 @@ exports[`test renders a list of contacts 1`] = `
           Object {
             "flex": 5,
             "fontSize": 20,
-            "marginBottom": 5,
             "textAlign": "left",
           }
         }>
@@ -282,15 +352,25 @@ exports[`test renders a list of contacts 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "fontSize": 25,
-            "marginRight": 15,
+            "color": "lightgrey",
+            "flex": 1,
+            "fontSize": 24,
+            "marginRight": 5,
             "textAlign": "right",
           }
         }>
-        
+        ★
       </Text>
     </View>
   </View>
+  <View
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "flex": 1,
+      }
+    } />
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
@@ -305,27 +385,38 @@ exports[`test renders a list of contacts 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
     testID={undefined}>
     <View
       style={
         Object {
-          "backgroundColor": "#F5FCFF",
+          "alignItems": "center",
           "flex": 1,
           "flexDirection": "row",
           "justifyContent": "space-around",
-          "padding": 5,
+          "padding": 10,
         }
       }>
-      <Image
-        source={Object {}}
-        style={undefined} />
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Object {
+              "flex": 1,
+              "height": 32,
+              "width": 32,
+            }
+          }
+          uri={undefined} />
+      </View>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -334,7 +425,6 @@ exports[`test renders a list of contacts 1`] = `
           Object {
             "flex": 5,
             "fontSize": 20,
-            "marginBottom": 5,
             "textAlign": "left",
           }
         }>
@@ -348,15 +438,25 @@ exports[`test renders a list of contacts 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "fontSize": 25,
-            "marginRight": 15,
+            "color": "lightgrey",
+            "flex": 1,
+            "fontSize": 24,
+            "marginRight": 5,
             "textAlign": "right",
           }
         }>
-        
+        ★
       </Text>
     </View>
   </View>
+  <View
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "flex": 1,
+      }
+    } />
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
@@ -371,27 +471,38 @@ exports[`test renders a list of contacts 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
     testID={undefined}>
     <View
       style={
         Object {
-          "backgroundColor": "#F5FCFF",
+          "alignItems": "center",
           "flex": 1,
           "flexDirection": "row",
           "justifyContent": "space-around",
-          "padding": 5,
+          "padding": 10,
         }
       }>
-      <Image
-        source={Object {}}
-        style={undefined} />
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Object {
+              "flex": 1,
+              "height": 32,
+              "width": 32,
+            }
+          }
+          uri={undefined} />
+      </View>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -400,7 +511,6 @@ exports[`test renders a list of contacts 1`] = `
           Object {
             "flex": 5,
             "fontSize": 20,
-            "marginBottom": 5,
             "textAlign": "left",
           }
         }>
@@ -414,15 +524,25 @@ exports[`test renders a list of contacts 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "fontSize": 25,
-            "marginRight": 15,
+            "color": "lightgrey",
+            "flex": 1,
+            "fontSize": 24,
+            "marginRight": 5,
             "textAlign": "right",
           }
         }>
-        
+        ★
       </Text>
     </View>
   </View>
+  <View
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "flex": 1,
+      }
+    } />
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
@@ -437,27 +557,38 @@ exports[`test renders a list of contacts 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
     testID={undefined}>
     <View
       style={
         Object {
-          "backgroundColor": "#F5FCFF",
+          "alignItems": "center",
           "flex": 1,
           "flexDirection": "row",
           "justifyContent": "space-around",
-          "padding": 5,
+          "padding": 10,
         }
       }>
-      <Image
-        source={Object {}}
-        style={undefined} />
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Object {
+              "flex": 1,
+              "height": 32,
+              "width": 32,
+            }
+          }
+          uri={undefined} />
+      </View>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -466,7 +597,6 @@ exports[`test renders a list of contacts 1`] = `
           Object {
             "flex": 5,
             "fontSize": 20,
-            "marginBottom": 5,
             "textAlign": "left",
           }
         }>
@@ -480,15 +610,25 @@ exports[`test renders a list of contacts 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "fontSize": 25,
-            "marginRight": 15,
+            "color": "lightgrey",
+            "flex": 1,
+            "fontSize": 24,
+            "marginRight": 5,
             "textAlign": "right",
           }
         }>
-        
+        ★
       </Text>
     </View>
   </View>
+  <View
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "flex": 1,
+      }
+    } />
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
@@ -503,27 +643,38 @@ exports[`test renders a list of contacts 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
     testID={undefined}>
     <View
       style={
         Object {
-          "backgroundColor": "#F5FCFF",
+          "alignItems": "center",
           "flex": 1,
           "flexDirection": "row",
           "justifyContent": "space-around",
-          "padding": 5,
+          "padding": 10,
         }
       }>
-      <Image
-        source={Object {}}
-        style={undefined} />
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Object {
+              "flex": 1,
+              "height": 32,
+              "width": 32,
+            }
+          }
+          uri={undefined} />
+      </View>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -532,7 +683,6 @@ exports[`test renders a list of contacts 1`] = `
           Object {
             "flex": 5,
             "fontSize": 20,
-            "marginBottom": 5,
             "textAlign": "left",
           }
         }>
@@ -546,15 +696,25 @@ exports[`test renders a list of contacts 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "fontSize": 25,
-            "marginRight": 15,
+            "color": "lightgrey",
+            "flex": 1,
+            "fontSize": 24,
+            "marginRight": 5,
             "textAlign": "right",
           }
         }>
-        
+        ★
       </Text>
     </View>
   </View>
+  <View
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "flex": 1,
+      }
+    } />
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
@@ -569,27 +729,38 @@ exports[`test renders a list of contacts 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
     testID={undefined}>
     <View
       style={
         Object {
-          "backgroundColor": "#F5FCFF",
+          "alignItems": "center",
           "flex": 1,
           "flexDirection": "row",
           "justifyContent": "space-around",
-          "padding": 5,
+          "padding": 10,
         }
       }>
-      <Image
-        source={Object {}}
-        style={undefined} />
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Object {
+              "flex": 1,
+              "height": 32,
+              "width": 32,
+            }
+          }
+          uri={undefined} />
+      </View>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -598,7 +769,6 @@ exports[`test renders a list of contacts 1`] = `
           Object {
             "flex": 5,
             "fontSize": 20,
-            "marginBottom": 5,
             "textAlign": "left",
           }
         }>
@@ -612,15 +782,25 @@ exports[`test renders a list of contacts 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "fontSize": 25,
-            "marginRight": 15,
+            "color": "lightgrey",
+            "flex": 1,
+            "fontSize": 24,
+            "marginRight": 5,
             "textAlign": "right",
           }
         }>
-        
+        ★
       </Text>
     </View>
   </View>
+  <View
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "flex": 1,
+      }
+    } />
   <View
     accessibilityComponentType={undefined}
     accessibilityLabel={undefined}
@@ -635,27 +815,38 @@ exports[`test renders a list of contacts 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Array [
-        Object {
-          "backgroundColor": "transparent",
-        },
-        undefined,
-      ]
+      Object {
+        "opacity": 1,
+      }
     }
     testID={undefined}>
     <View
       style={
         Object {
-          "backgroundColor": "#F5FCFF",
+          "alignItems": "center",
           "flex": 1,
           "flexDirection": "row",
           "justifyContent": "space-around",
-          "padding": 5,
+          "padding": 10,
         }
       }>
-      <Image
-        source={Object {}}
-        style={undefined} />
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }>
+        <Image
+          source={1}
+          style={
+            Object {
+              "flex": 1,
+              "height": 32,
+              "width": 32,
+            }
+          }
+          uri={undefined} />
+      </View>
       <Text
         accessible={true}
         allowFontScaling={true}
@@ -664,7 +855,6 @@ exports[`test renders a list of contacts 1`] = `
           Object {
             "flex": 5,
             "fontSize": 20,
-            "marginBottom": 5,
             "textAlign": "left",
           }
         }>
@@ -678,14 +868,24 @@ exports[`test renders a list of contacts 1`] = `
         ellipsizeMode="tail"
         style={
           Object {
-            "fontSize": 25,
-            "marginRight": 15,
+            "color": "lightgrey",
+            "flex": 1,
+            "fontSize": 24,
+            "marginRight": 5,
             "textAlign": "right",
           }
         }>
-        
+        ★
       </Text>
     </View>
   </View>
+  <View
+    style={
+      Object {
+        "borderBottomWidth": 1,
+        "borderColor": "lightgrey",
+        "flex": 1,
+      }
+    } />
 </ScrollView>
 `;

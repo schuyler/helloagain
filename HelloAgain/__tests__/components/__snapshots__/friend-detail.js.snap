@@ -2,6 +2,7 @@ exports[`test frienders 1`] = `
 <View
   style={
     Object {
+      "alignItems": "center",
       "alignSelf": "center",
       "flex": 1,
       "flexDirection": "column",
@@ -10,18 +11,23 @@ exports[`test frienders 1`] = `
       "width": 200,
     }
   }>
-  <Image
-    source={Object {}}
+  <View
     style={
       Object {
-        "borderColor": "grey",
-        "borderWidth": 1,
         "flex": 1,
-        "height": 128,
-        "margin": 32,
-        "width": 128,
       }
-    } />
+    }>
+    <Image
+      source={1}
+      style={
+        Object {
+          "height": 128,
+          "padding": 32,
+          "width": 128,
+        }
+      }
+      uri={undefined} />
+  </View>
   <Text
     accessible={true}
     allowFontScaling={true}

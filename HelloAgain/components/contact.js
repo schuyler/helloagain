@@ -5,9 +5,10 @@ import {
   Text,
   View,
   StyleSheet,
-  TouchableHighlight,
-  Image
+  TouchableOpacity,
 } from 'react-native'
+import Portrait from './portrait'
+import shared from './shared'
 
 export default class Contact extends Component {
   constructor(props) {
@@ -16,39 +17,29 @@ export default class Contact extends Component {
 
   render() {
     const item = this.props.item;
-    var imageSource = {};
-    if (item.thumbnailPath) {
-      imageSource.uri = item.thumbnailPath
-    }
     return (
-      <TouchableHighlight onPress={() => this.props.onPress(item)}>
+      <TouchableOpacity onPress={() => this.props.onPress(item)}>
         <View style={styles.contactRow}>
-          <Image style={styles.contactPicture} source={imageSource} />
+          <Portrait uri={item.thumbnailPath} style={styles.contactPicture} />
           <Text style={styles.contactName}>{item.givenName} {item.familyName}</Text>
-          <Text style={styles.contactActive}>{item.isActive ? '✓' : ''}</Text>
+          <Text style={item.isActive ? styles.contactActive : styles.contactInactive}>★</Text>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  contactRow: {
-    flex: 1,
-    padding: 5,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    backgroundColor: '#F5FCFF',
-  },
-  contactName: {
-    marginBottom: 5,
-    textAlign: 'left',
-    fontSize: 20,
-    flex: 5
+  contactRow: shared.row,
+  contactPicture: shared.rowPicture,
+  contactName: shared.rowName,
+  contactInactive: {
+    ...shared.rowProps,
+    color: 'lightgrey'
   },
   contactActive: {
-    marginRight: 15,
-    textAlign: 'right',
-    fontSize: 25
-  }  
+    ...shared.rowProps,
+    color: 'dodgerblue'
+  }
 })
+

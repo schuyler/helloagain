@@ -8,18 +8,15 @@ import {
   Image,
   Button
 } from 'react-native'
+import Portrait from './portrait'
 
 export default class FriendDetail extends Component {
   render() {
     const item = this.props.item;
-    var imageSource = {};
-    if (item.thumbnailPath) {
-      imageSource.uri = item.thumbnailPath
-    }
     let contactedAt = item.contactedAt ? Date(item.contactedAt).toString() : "unknown"
     return (
         <View style={styles.friendDetail}>
-          <Image style={styles.friendPicture} source={imageSource} />
+          <Portrait uri={item.thumbnailPath} style={styles.friendPicture} />
           <Text style={styles.friendName}>{item.givenName} {item.familyName}</Text>
           <Text style={styles.friendContent}>Last contacted: {contactedAt}</Text>
           <Button 
@@ -42,16 +39,14 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     flex: 1,
     alignSelf: 'center',
+    alignItems: 'center',
     width: 200,
     margin: 64
   },
   friendPicture: {
     height: 128,
     width: 128,
-    margin: 32,
-    borderWidth: 1,
-    borderColor: "grey",
-    flex: 1
+    padding: 32
   },
   friendName: {
     fontSize: 24,
