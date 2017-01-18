@@ -9,11 +9,12 @@ import {
   Button
 } from 'react-native'
 import Portrait from './portrait'
+import moment from 'moment'
 
 export default class FriendDetail extends Component {
   render() {
     const item = this.props.item;
-    let contactedAt = item.contactedAt ? Date(item.contactedAt).toString() : "unknown"
+    let contactedAt = item.contactedAt ? moment(item.contactedAt).format("LL") : "never"
     return (
         <View style={styles.friendDetail}>
           <Portrait uri={item.thumbnailPath} style={styles.friendPicture} />
@@ -40,7 +41,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'center',
     alignItems: 'center',
-    width: 200,
     margin: 64
   },
   friendPicture: {
@@ -60,6 +60,9 @@ const styles = StyleSheet.create({
     flex: 1
   },
   contactedButton: {
-    flex: 1
+    flex: 1,
+    backgroundColor: 'dodgerblue',
+    color: 'white',
+    fontWeight: 'bold'
   }
 })

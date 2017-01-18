@@ -8,7 +8,6 @@ exports[`test frienders 1`] = `
       "flexDirection": "column",
       "margin": 64,
       "paddingTop": 64,
-      "width": 200,
     }
   }>
   <View
@@ -56,7 +55,7 @@ exports[`test frienders 1`] = `
       }
     }>
     Last contacted: 
-    unknown
+    never
   </Text>
   <View
     accessibilityComponentType="button"
