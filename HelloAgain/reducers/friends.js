@@ -48,7 +48,7 @@ const importContacts = (state, contacts) => {
   let newState = {...state}
   contacts.forEach((item) => {
     let id = _id(item)
-    newState[id] = {...item, ...state[id]}
+    newState[id] = {...state[id], ...item}
   })
   return newState
 }
