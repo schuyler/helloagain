@@ -3,6 +3,8 @@
 import friends from '../../reducers/friends'
 import * as actions from '../../actions/friend'
 import * as contactActions from '../../actions/contact'
+import * as importActions from '../../actions/contact-import'
+import { copyFriendsFixture } from "../fixtures/friends"
 
 describe('friends reducer', () => {
   let bob = {name: "Bob", recordID: 50}
@@ -12,6 +14,19 @@ describe('friends reducer', () => {
     expect(
       friends(undefined, {})
     ).toEqual({})
+  })
+
+  describe('contactsLoaded action', () => {
+    let initialState = copyFriendsFixture()
+    it('should import contacts and overwrite existing values', () => {
+      let contactImport = [
+        {recordID: 1, phoneNumber: "800-555-1212"},
+        {recordID: 99, givenName: "Carl", familyName: "Sagan"}
+      ]
+      expect(
+        friends(initialState, importActions.contactsLoaded(contactImport))
+      ).toMatchSnapshot()
+    })
   })
 
   describe('updateFriend action', () => {
