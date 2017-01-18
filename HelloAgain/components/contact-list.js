@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import {
   ListView,
+  View,
   StyleSheet
 } from 'react-native'
 
@@ -21,6 +22,9 @@ export default class ContactList extends Component {
   }
 
   render() {
+    const separator = (sectionID, rowID) => {
+      return <View key={sectionID + rowID} style={styles.contactSeparator} />
+    }
     return (
       <ListView
         dataSource={this.dataSource.cloneWithRows(this.props.items)}
@@ -28,6 +32,8 @@ export default class ContactList extends Component {
           this.props.renderRow ||
           this.renderContact.bind(this) }
         style={styles.contactList}
+        enableEmptySections={true}
+        renderSeparator={separator}
       />
     )
   }
@@ -35,8 +41,11 @@ export default class ContactList extends Component {
 
 const styles = StyleSheet.create({
   contactList: {
-    paddingTop: 20,
-    alignSelf: 'stretch',
-    backgroundColor: '#ffffff',
+    flex: 1
+  },
+  contactSeparator: {
+    borderBottomWidth: 1,
+    borderColor: "lightgrey",
+    flex: 1
   }
 })
