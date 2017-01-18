@@ -51,7 +51,7 @@ exports[`test renders a contact 1`] = `
       ellipsizeMode="tail"
       style={
         Object {
-          "flex": 5,
+          "flex": 3,
           "fontSize": 20,
           "textAlign": "left",
         }
@@ -132,7 +132,7 @@ exports[`test renders an active contact 1`] = `
       ellipsizeMode="tail"
       style={
         Object {
-          "flex": 5,
+          "flex": 3,
           "fontSize": 20,
           "textAlign": "left",
         }

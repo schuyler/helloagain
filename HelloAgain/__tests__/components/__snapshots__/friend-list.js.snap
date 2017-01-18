@@ -85,7 +85,7 @@ exports[`test renders a list of friends 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "flex": 5,
+              "flex": 3,
               "fontSize": 20,
               "textAlign": "left",
             }
@@ -107,7 +107,7 @@ exports[`test renders a list of friends 1`] = `
               "textAlign": "right",
             }
           }>
-          ???
+          never
         </Text>
       </View>
     </View>
@@ -171,7 +171,7 @@ exports[`test renders a list of friends 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "flex": 5,
+              "flex": 3,
               "fontSize": 20,
               "textAlign": "left",
             }
@@ -193,7 +193,7 @@ exports[`test renders a list of friends 1`] = `
               "textAlign": "right",
             }
           }>
-          ???
+          never
         </Text>
       </View>
     </View>
@@ -257,7 +257,7 @@ exports[`test renders a list of friends 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "flex": 5,
+              "flex": 3,
               "fontSize": 20,
               "textAlign": "left",
             }
@@ -279,7 +279,7 @@ exports[`test renders a list of friends 1`] = `
               "textAlign": "right",
             }
           }>
-          ???
+          never
         </Text>
       </View>
     </View>
@@ -343,7 +343,7 @@ exports[`test renders a list of friends 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "flex": 5,
+              "flex": 3,
               "fontSize": 20,
               "textAlign": "left",
             }
@@ -365,7 +365,7 @@ exports[`test renders a list of friends 1`] = `
               "textAlign": "right",
             }
           }>
-          ???
+          never
         </Text>
       </View>
     </View>
@@ -429,7 +429,7 @@ exports[`test renders a list of friends 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "flex": 5,
+              "flex": 3,
               "fontSize": 20,
               "textAlign": "left",
             }
@@ -451,7 +451,7 @@ exports[`test renders a list of friends 1`] = `
               "textAlign": "right",
             }
           }>
-          ???
+          never
         </Text>
       </View>
     </View>
@@ -515,7 +515,7 @@ exports[`test renders a list of friends 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "flex": 5,
+              "flex": 3,
               "fontSize": 20,
               "textAlign": "left",
             }
@@ -537,7 +537,7 @@ exports[`test renders a list of friends 1`] = `
               "textAlign": "right",
             }
           }>
-          ???
+          never
         </Text>
       </View>
     </View>
@@ -601,7 +601,7 @@ exports[`test renders a list of friends 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "flex": 5,
+              "flex": 3,
               "fontSize": 20,
               "textAlign": "left",
             }
@@ -623,7 +623,7 @@ exports[`test renders a list of friends 1`] = `
               "textAlign": "right",
             }
           }>
-          ???
+          never
         </Text>
       </View>
     </View>
@@ -687,7 +687,7 @@ exports[`test renders a list of friends 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "flex": 5,
+              "flex": 3,
               "fontSize": 20,
               "textAlign": "left",
             }
@@ -709,7 +709,7 @@ exports[`test renders a list of friends 1`] = `
               "textAlign": "right",
             }
           }>
-          ???
+          never
         </Text>
       </View>
     </View>
@@ -773,7 +773,7 @@ exports[`test renders a list of friends 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "flex": 5,
+              "flex": 3,
               "fontSize": 20,
               "textAlign": "left",
             }
@@ -795,7 +795,7 @@ exports[`test renders a list of friends 1`] = `
               "textAlign": "right",
             }
           }>
-          ???
+          never
         </Text>
       </View>
     </View>
@@ -859,7 +859,7 @@ exports[`test renders a list of friends 1`] = `
           ellipsizeMode="tail"
           style={
             Object {
-              "flex": 5,
+              "flex": 3,
               "fontSize": 20,
               "textAlign": "left",
             }
@@ -881,7 +881,7 @@ exports[`test renders a list of friends 1`] = `
               "textAlign": "right",
             }
           }>
-          ???
+          never
         </Text>
       </View>
     </View>
