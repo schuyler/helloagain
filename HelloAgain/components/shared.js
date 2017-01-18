@@ -20,7 +20,7 @@ export default {
   rowName: {
     textAlign: 'left',
     fontSize: 20,
-    flex: 5
+    flex: 3
   },
   rowProps: {
     fontSize: 24,

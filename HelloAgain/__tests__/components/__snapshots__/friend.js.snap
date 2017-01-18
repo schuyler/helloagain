@@ -51,7 +51,7 @@ exports[`test frienders 1`] = `
       ellipsizeMode="tail"
       style={
         Object {
-          "flex": 5,
+          "flex": 3,
           "fontSize": 20,
           "textAlign": "left",
         }
@@ -73,7 +73,7 @@ exports[`test frienders 1`] = `
           "textAlign": "right",
         }
       }>
-      ???
+      never
     </Text>
   </View>
 </View>
