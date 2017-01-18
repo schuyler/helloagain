@@ -1,0 +1,28 @@
+exports[`test renders a default 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }>
+  <Image
+    source={1} />
+</View>
+`;
+
+exports[`test renders a uri 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }>
+  <Image
+    source={
+      Object {
+        "uri": "file://../../assets/epic.png",
+      }
+    }
+    uri="file://../../assets/epic.png" />
+</View>
+`;
