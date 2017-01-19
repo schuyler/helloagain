@@ -5,7 +5,7 @@ import { onlyActivatedFriends } from "../../store/filter"
 
 it('returns a function that filters all but activated friends', () => {
   const fixture = copyFriendsFixture()
-  fixture["1"].isActive = true
+  Object.values(fixture)[0].isActive = true
   const filtered = onlyActivatedFriends.in(fixture, "friends")
   expect(Object.keys(filtered).length).toEqual(1)
 })

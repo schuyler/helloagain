@@ -5,14 +5,11 @@ import {
   TOGGLE_ACTIVE,
   CONTACTS_LOADED,
   MARK_AS_CONTACTED
-} from '../actions/types';
-
-const _id = (friend) => {
-  return friend.recordID
-}
+} from '../actions/types'
+import stringHash from 'string-hash'
 
 const findFriend = (state, friend) => {
-  return state[_id(friend)] 
+  return state[friend.helloAgainID] 
 }
 
 const queueTail = (state) => {
@@ -38,17 +35,38 @@ const markContacted = (state, friend) => {
 }
 
 const updateFriend = (state, update, useDefaults) => {
-  let id = _id(update)
+  let id = update.helloAgainID
   let defaults = useDefaults ? defaultValues(state) : undefined
   let newFriend = {...defaults, ...state[id], ...update}
   return {...state, [id]: newFriend}
 }
 
+export const generateHelloAgainID = (friend) => {
+  const digest = "000" + stringHash(friend.recordID.toString()).toString(16)
+  const uid = [
+    friend.givenName,
+    friend.familyName,
+    digest.slice(-4)
+  ].join(" ").toLowerCase().replace(/\W+/g, "-")
+  return uid
+}
+
 const importContacts = (state, contacts) => {
   let newState = {...state}
   contacts.forEach((item) => {
-    let id = _id(item)
-    newState[id] = {...state[id], ...item}
+    let id = "";
+    if (item.urlAddresses) {
+      item.urlAddresses.forEach(url => {
+        if (url.label == "HelloAgain") {
+          id = url.urlAddress.replace(/.*\//, "")
+          return
+        }
+      })
+    }
+    if (!id) {
+      id = generateHelloAgainID(item)
+    }
+    newState[id] = {helloAgainID: id, ...state[id], ...item}
   })
   return newState
 }
