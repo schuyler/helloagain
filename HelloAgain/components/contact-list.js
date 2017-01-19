@@ -26,6 +26,7 @@ export default class ContactList extends Component {
       return <View key={sectionID + rowID} style={styles.contactSeparator} />
     }
     return (
+      <View style={{flex: 1}}>
       <ListView
         dataSource={this.dataSource.cloneWithRows(this.props.items)}
         renderRow={
@@ -35,6 +36,7 @@ export default class ContactList extends Component {
         enableEmptySections={true}
         renderSeparator={separator}
       />
+      </View>
     )
   }
 }

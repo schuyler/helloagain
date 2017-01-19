@@ -22,7 +22,7 @@ export default class FriendList extends ContactList {
       // See note about paddingTop below... I have _no_ idea why this is
       // necessary here but not in ContactPicker -> ContactList.
       return (
-        <View style={{paddingTop: 64}}>
+        <View style={{paddingTop: 64, flex: 1}}>
           {super.render()}
         </View>
       )
