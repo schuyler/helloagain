@@ -4,12 +4,13 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme'
 import configureStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
 
 import { TOGGLE_ACTIVE } from "../../actions/types"
 import ContactPicker from "../../containers/contact-picker"
 import { FRIENDS_FIXTURE } from "../fixtures/friends"
 
-const mockStore = configureStore([])
+const mockStore = configureStore([thunk])
 const store = mockStore({friends: FRIENDS_FIXTURE})
 
 it('renders something', () => {
