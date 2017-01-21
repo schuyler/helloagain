@@ -7,8 +7,8 @@ import * as importActions from '../../actions/contact-import'
 import { copyFriendsFixture } from "../fixtures/friends"
 
 describe('friends reducer', () => {
-  let bob = {name: "Bob", recordID: 50}
-  let jim = {name: "Jim", recordID: 42}
+  let bob = {name: "Bob", helloAgainID: "bob-5555"}
+  let jim = {name: "Jim", helloAgainID: "jim-4242"}
 
   it('should return an initial state', () => {
     expect(
@@ -18,10 +18,21 @@ describe('friends reducer', () => {
 
   describe('contactsLoaded action', () => {
     let initialState = copyFriendsFixture()
+    let randomPerson = Object.values(initialState)[0]
     it('should import contacts and overwrite existing values', () => {
       let contactImport = [
-        {recordID: 1, phoneNumber: "800-555-1212"},
-        {recordID: 99, givenName: "Carl", familyName: "Sagan"}
+        {
+          urlAddresses: [{
+            label: "HelloAgain",
+            urlAddress: randomPerson.helloAgainID
+          }],
+          phoneNumber: "800-555-1212"
+        },
+        {
+          recordID: 99,
+          givenName: "Carl",
+          familyName: "Sagan"
+        }
       ]
       expect(
         friends(initialState, importActions.contactsLoaded(contactImport))
@@ -32,7 +43,7 @@ describe('friends reducer', () => {
   describe('updateFriend action', () => {
     let initialState = friends(undefined, actions.updateFriend(bob))
     it('should add a friend', () => {
-      expect(initialState).toEqual({50: bob})
+      expect(initialState).toEqual({[bob.helloAgainID]: bob})
     })
 
     it('should not duplicate an existing friend', () => {
@@ -42,15 +53,15 @@ describe('friends reducer', () => {
     })
 
     it("should merge a friend's existing record", () => {
-      let newFact = {recordID: 50, hobby: "fishing"}
+      let newFact = {helloAgainID: bob.helloAgainID, hobby: "fishing"}
       let newState = friends(initialState, actions.updateFriend(newFact))
-      expect(newState).toMatchObject({50: {...bob, ...newFact}})
+      expect(newState).toMatchObject({[bob.helloAgainID]: {...bob, ...newFact}})
     })
 
     it('should add a new friend', () => {
       expect(
         friends(initialState, actions.updateFriend(jim))
-      ).toEqual({50: bob, 42: jim})
+      ).toEqual({[bob.helloAgainID]: bob, [jim.helloAgainID]: jim})
     })
   })
 
@@ -61,8 +72,8 @@ describe('friends reducer', () => {
     )
     it('should update rank and contactedAt', () => {
       let newState = friends(initialState, actions.markAsContacted(bob))
-      expect(newState[bob.recordID].contactedAt).toBeTruthy()
-      expect(newState[bob.recordID].rank).toEqual(13)
+      expect(newState[bob.helloAgainID].contactedAt).toBeTruthy()
+      expect(newState[bob.helloAgainID].rank).toEqual(13)
     })
   })
 

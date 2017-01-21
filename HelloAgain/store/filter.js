@@ -13,6 +13,6 @@ export const onlyActivatedFriends = createTransform((state, key) => {
   let filtered = {}
   Object.values(state)
     .filter(f => f.isActive !== undefined)
-    .forEach((f) => {filtered[f.recordID] = f})
+    .forEach((f) => {filtered[f.helloAgainID] = f})
   return filtered
 })
