@@ -1,7 +1,6 @@
 'use strict';
 
 import configureMockStore from 'redux-mock-store'
-import thunk from 'redux-thunk'
 import {CONTACT_FIXTURE} from '../fixtures/contacts'
 import {CONTACTS_LOADED} from '../../actions/types'
 import * as actions from '../../actions/contact-import'
@@ -9,7 +8,7 @@ import Contacts from 'react-native-contacts'
 jest.mock('react-native-contacts')
 
 const bob = {helloAgainID: "bob-dobbs-5555", givenName: "Bob", familyName: "Dobbs"}
-const mockStore = configureMockStore([thunk])
+const mockStore = configureMockStore()
 
 describe('contactsLoaded', () => {
   it('should return an action', () => {
@@ -30,8 +29,8 @@ describe('contactLoadFailed', () => {
 describe('loadNativeContacts', () => {
   const store = mockStore({})
   it('should dispatch CONTACTS_LOADED', () => {
-    store.dispatch(actions.loadNativeContacts())
-      .then(() => {
+    Contacts.getAll = jest.fn(_ => Promise.resolve(CONTACT_FIXTURE))
+    actions.loadNativeContacts(store).then(() => {
         let dispatched = store.getActions()
         expect(dispatched[0].type).toBe(CONTACTS_LOADED)
         expect(dispatched[0].contacts.length).toBeGreaterThan(0)
