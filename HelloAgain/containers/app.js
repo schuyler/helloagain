@@ -14,7 +14,7 @@ export default class HelloAgain extends Component {
   }
 
   componentWillMount() {
-    store.dispatch(loadNativeContacts())
+    loadNativeContacts(store)
   }
 
   pickContacts() {
