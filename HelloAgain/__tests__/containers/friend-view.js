@@ -14,15 +14,16 @@ it('frienders', () => {
   const fixture = copyFriendsFixture()
   Object.values(fixture).forEach((f) => {f.isActive = true})
   const store = mockStore({friends: fixture})
+  const friend = Object.values(fixture)[0]
   renderer.create(
-    <FriendView store={store} item={fixture["1"]} />
+    <FriendView store={store} item={friend} />
   )
 })
 
 it('marks a friend contacted', () => {
   const fixture = copyFriendsFixture()
   const store = mockStore({friends: fixture})
-  const friend = fixture["1"]
+  const friend = Object.values(fixture)[0]
   const wrapper = shallow(
     <FriendView store={store} item={friend} />
   )

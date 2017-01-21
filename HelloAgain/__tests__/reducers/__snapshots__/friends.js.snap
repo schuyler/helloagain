@@ -1,136 +1,160 @@
 exports[`friends reducer contactsLoaded action should import contacts and overwrite existing values 1`] = `
 Object {
-  "1": Object {
-    "familyName": "Copernicus",
-    "givenName": "Nicolaus",
-    "phoneNumber": "800-555-1212",
-    "recordID": 1,
+  "carl-sagan-6925": Object {
+    "familyName": "Sagan",
+    "givenName": "Carl",
+    "helloAgainID": "carl-sagan-6925",
+    "recordID": 99,
   },
-  "10": Object {
-    "familyName": "Hubble",
-    "givenName": "Edwin",
-    "recordID": 10,
-  },
-  "11": Object {
-    "familyName": "Rubin",
-    "givenName": "Vera",
-    "recordID": 11,
-  },
-  "12": Object {
-    "familyName": "Kepler",
-    "givenName": "Johannes",
-    "recordID": 12,
-  },
-  "13": Object {
-    "familyName": "Humason",
-    "givenName": "Milton",
-    "middleName": "L.",
-    "recordID": 13,
-  },
-  "14": Object {
-    "familyName": "Oort",
-    "givenName": "Jan",
-    "recordID": 14,
-  },
-  "15": Object {
-    "familyName": "Klumpke",
-    "givenName": "Dorothea",
-    "recordID": 15,
-  },
-  "16": Object {
-    "familyName": "Struve",
-    "givenName": "Gustav Wilhelm Ludvig",
-    "recordID": 16,
-  },
-  "17": Object {
-    "familyName": "Wolf",
-    "givenName": "Max",
-    "recordID": 17,
-  },
-  "2": Object {
-    "familyName": "Brahe",
-    "givenName": "Tycho",
-    "recordID": 2,
-  },
-  "3": Object {
-    "familyName": "Tombaugh",
-    "givenName": "Clyde",
-    "recordID": 3,
-  },
-  "4": Object {
-    "familyName": "Herschel",
-    "givenName": "William",
-    "recordID": 4,
-  },
-  "5": Object {
-    "familyName": "Herschel",
-    "givenName": "John",
-    "recordID": 5,
-  },
-  "6": Object {
+  "charles-messier-b593": Object {
     "familyName": "Messier",
     "givenName": "Charles",
+    "helloAgainID": "charles-messier-b593",
     "recordID": 6,
   },
-  "7": Object {
+  "clyde-tombaugh-b596": Object {
+    "familyName": "Tombaugh",
+    "givenName": "Clyde",
+    "helloAgainID": "clyde-tombaugh-b596",
+    "recordID": 3,
+  },
+  "dorothea-klumpke-67a1": Object {
+    "familyName": "Klumpke",
+    "givenName": "Dorothea",
+    "helloAgainID": "dorothea-klumpke-67a1",
+    "recordID": 15,
+  },
+  "edwin-hubble-6804": Object {
+    "familyName": "Hubble",
+    "givenName": "Edwin",
+    "helloAgainID": "edwin-hubble-6804",
+    "recordID": 10,
+  },
+  "ejnar-herzsprung-b59c": Object {
+    "familyName": "Herzsprung",
+    "givenName": "Ejnar",
+    "helloAgainID": "ejnar-herzsprung-b59c",
+    "recordID": 9,
+  },
+  "gustav-wilhelm-ludvig-struve-67c2": Object {
+    "familyName": "Struve",
+    "givenName": "Gustav Wilhelm Ludvig",
+    "helloAgainID": "gustav-wilhelm-ludvig-struve-67c2",
+    "recordID": 16,
+  },
+  "henrietta-leavitt-b592": Object {
     "familyName": "Leavitt",
     "givenName": "Henrietta",
+    "helloAgainID": "henrietta-leavitt-b592",
     "middleName": "Swan",
     "recordID": 7,
   },
-  "8": Object {
+  "j-r-me-lalande-b59d": Object {
     "familyName": "Lalande",
     "givenName": "Jérôme",
+    "helloAgainID": "j-r-me-lalande-b59d",
     "recordID": 8,
   },
-  "9": Object {
-    "familyName": "Herzsprung",
-    "givenName": "Ejnar",
-    "recordID": 9,
+  "jan-oort-6780": Object {
+    "familyName": "Oort",
+    "givenName": "Jan",
+    "helloAgainID": "jan-oort-6780",
+    "recordID": 14,
   },
-  "99": Object {
-    "familyName": "Sagan",
-    "givenName": "Carl",
-    "recordID": 99,
+  "johannes-kepler-6846": Object {
+    "familyName": "Kepler",
+    "givenName": "Johannes",
+    "helloAgainID": "johannes-kepler-6846",
+    "recordID": 12,
+  },
+  "john-herschel-b590": Object {
+    "familyName": "Herschel",
+    "givenName": "John",
+    "helloAgainID": "john-herschel-b590",
+    "recordID": 5,
+  },
+  "max-wolf-67e3": Object {
+    "familyName": "Wolf",
+    "givenName": "Max",
+    "helloAgainID": "max-wolf-67e3",
+    "recordID": 17,
+  },
+  "milton-humason-6867": Object {
+    "familyName": "Humason",
+    "givenName": "Milton",
+    "helloAgainID": "milton-humason-6867",
+    "middleName": "L.",
+    "recordID": 13,
+  },
+  "nicolaus-copernicus-b594": Object {
+    "familyName": "Copernicus",
+    "givenName": "Nicolaus",
+    "helloAgainID": "nicolaus-copernicus-b594",
+    "phoneNumber": "800-555-1212",
+    "recordID": 1,
+    "urlAddresses": Array [
+      Object {
+        "label": "HelloAgain",
+        "urlAddress": "nicolaus-copernicus-b594",
+      },
+    ],
+  },
+  "tycho-brahe-b597": Object {
+    "familyName": "Brahe",
+    "givenName": "Tycho",
+    "helloAgainID": "tycho-brahe-b597",
+    "recordID": 2,
+  },
+  "vera-rubin-6825": Object {
+    "familyName": "Rubin",
+    "givenName": "Vera",
+    "helloAgainID": "vera-rubin-6825",
+    "recordID": 11,
+  },
+  "william-herschel-b591": Object {
+    "familyName": "Herschel",
+    "givenName": "William",
+    "helloAgainID": "william-herschel-b591",
+    "recordID": 4,
   },
 }
 `;
 
 exports[`friends reducer toggleActive action should toggle a new friend active and set default 1`] = `
 Object {
-  "42": Object {
-    "isActive": true,
-    "name": "Jim",
-    "rank": 2,
-    "recordID": 42,
-  },
-  "50": Object {
+  "bob-5555": Object {
+    "helloAgainID": "bob-5555",
     "isActive": true,
     "name": "Bob",
     "rank": 1,
-    "recordID": 50,
+  },
+  "jim-4242": Object {
+    "helloAgainID": "jim-4242",
+    "isActive": true,
+    "name": "Jim",
+    "rank": 2,
   },
 }
 `;
 
 exports[`friends reducer toggleActive action should toggle an existing friend (in)active 1`] = `
 Object {
-  "50": Object {
+  "bob-5555": Object {
+    "helloAgainID": "bob-5555",
     "isActive": false,
     "name": "Bob",
     "rank": 1,
-    "recordID": 50,
   },
 }
 `;
 
 exports[`friends reducer toggleActive action should toggle an existing friend (in)active 2`] = `
 Object {
-  "50": Object {
+  "bob-5555": Object {
+    "helloAgainID": "bob-5555",
     "isActive": true,
     "name": "Bob",
     "rank": 1,
-    "recordID": 50,
   },
 }
 `;

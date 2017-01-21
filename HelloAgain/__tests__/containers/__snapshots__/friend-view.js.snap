@@ -4,6 +4,7 @@ Array [
     "friend": Object {
       "familyName": "Copernicus",
       "givenName": "Nicolaus",
+      "helloAgainID": "nicolaus-copernicus-b594",
       "recordID": 1,
     },
     "type": "MARK_AS_CONTACTED",
