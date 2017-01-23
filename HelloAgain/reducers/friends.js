@@ -6,6 +6,7 @@ import {
   CONTACTS_LOADED,
   MARK_AS_CONTACTED
 } from '../actions/types'
+import { writeIDtoNativeContact } from '../actions/contact-import'
 import stringHash from 'string-hash'
 
 const findFriend = (state, friend) => {
@@ -79,6 +80,8 @@ const friends = (state = {}, action) => {
       let existingFriend = findFriend(state, action.friend)
       let isActive = (existingFriend ? existingFriend.isActive : false)
       let update = {...action.friend, isActive: !isActive}
+      // Update the native contact store
+      action.sideEffect(_ => writeIDtoNativeContact(update))
       // Set default values (if needed) when toggling a friend
       return updateFriend(state, update, true)
     case MARK_AS_CONTACTED:

@@ -2,13 +2,13 @@
 
 import { createStore, applyMiddleware, compose } from 'redux'
 import { persistStore, autoRehydrate } from 'redux-persist'
-import thunk from 'redux-thunk'
+import { actionSideEffectMiddleware } from 'redux-side-effect'
 import { AsyncStorage } from 'react-native'
 import { onlyActivatedFriends } from './filter'
 import mainReducer from '../reducers'
 
 const enhancers = compose(
-  applyMiddleware(thunk),
+  applyMiddleware(actionSideEffectMiddleware),
   autoRehydrate()
 )
 const store = createStore(mainReducer, enhancers)

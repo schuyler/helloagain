@@ -14,7 +14,7 @@ export const contactLoadFailed = (error) => {
   return {type: CONTACT_LOAD_FAILED, error: error}
 }
 
-export const loadNativeContacts = () => {
+export const loadNativeContacts = (store) => {
   // Create a Promise that gets all native contacts and resolves on success.
   const loadContacts = new Promise((resolve, reject) => {
     Contacts.getAll((err, contacts) => {
@@ -24,18 +24,17 @@ export const loadNativeContacts = () => {
   // Return an action thunk that:
   //   1. Loads all contacts
   //   2. On success, dispatches the `contactsLoaded` action
-  //   3. Then, dispatches the `writeIDsForAllFriends` to write back any new
-  //      IDs to the native contact store
+  //   3. Then, call`writeIDsForAllFriends` to write back any new IDs to the
+  //   native contact store
   //   4. On failure, dispatch the `contactLoadFailed` action
-  return dispatch => {
-    return loadContacts
-      .then(contacts => {
-        let result = dispatch(contactsLoaded(contacts))
-        console.log("contactsLoaded:", Object.values(result).length)
-      })
-      .then(_ => { return dispatch(writeIDsForAllFriends()) })
-      .catch(error => dispatch(contactLoadFailed(error)))
-  }
+  return loadContacts
+    .then(contacts => {
+      console.log("contactsLoaded:", contacts.length)
+      store.dispatch(contactsLoaded(contacts))
+      return store.getState().friends
+    })
+    .then(friends => writeIDsForAllFriends(friends))
+    .catch(error => store.dispatch(contactLoadFailed(error)))
 }
 
 const generateURL = (item) => {
@@ -70,15 +69,12 @@ export const writeIDtoNativeContact = (item) => {
   })
 }
 
-const writeIDsForAllFriends = () => {
-  // Return an action thunk that is pure side-effects -- just iterate
-  // over the entire set of contacts and make sure that any once-active friends
-  // that don't have HelloAgain URLs associated with them get one. This
+const writeIDsForAllFriends = (friends) => {
+  // Iterate over the entire set of contacts and make sure that any once-active
+  // friends that don't have HelloAgain URLs associated with them get one. This
   // shouldn't really ever happen, because the `toggleActive` action takes care
   // of the records one-by-one, but I guess it can't hurt to be certain.
-  return (_, getState) => {
-    const state = getState()
-    const friends = Object.values(state.friends).filter(f => f.isActive !== undefined)
-    friends.forEach(item => writeIDtoNativeContact(item))
-  }
+  Object.values(friends)
+    .filter(f => f.isActive !== undefined)
+    .forEach(item => writeIDtoNativeContact(item))
 }

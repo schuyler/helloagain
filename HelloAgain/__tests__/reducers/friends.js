@@ -1,10 +1,15 @@
 'use strict';
 
+import configureStore from 'redux-mock-store'
+import { actionSideEffectMiddleware } from 'redux-side-effect'
+
 import friends from '../../reducers/friends'
 import * as actions from '../../actions/friend'
 import * as contactActions from '../../actions/contact'
 import * as importActions from '../../actions/contact-import'
 import { copyFriendsFixture } from "../fixtures/friends"
+
+const mockStore = configureStore([actionSideEffectMiddleware])
 
 describe('friends reducer', () => {
   let bob = {name: "Bob", helloAgainID: "bob-5555"}
@@ -78,9 +83,22 @@ describe('friends reducer', () => {
   })
 
   describe('toggleActive action', () => {
+    it('should trigger writeIDtoNativeContact', () => {
+      const store = mockStore()
+      importActions.writeIDtoNativeContact = jest.fn()
+      store.dispatch(contactActions.toggleActive(bob))
+      expect(importActions.writeIDtoNativeContact)
+    })
+
+    // Because redux-mock-store doesn't call the damn reducer,
+    // we have to mock the application of the middleware.
+    const _toggleActive = item => (
+      {...contactActions.toggleActive(item), sideEffect: jest.fn()}
+    )
+
     it('should toggle a new friend active and set default', () => {
-      let state = friends(undefined, contactActions.toggleActive(bob))
-      state = friends(state, contactActions.toggleActive(jim))
+      let state = friends(undefined, _toggleActive(bob))
+      state = friends(state, _toggleActive(jim))
       expect(state).toMatchSnapshot()
     })
 
@@ -88,11 +106,11 @@ describe('friends reducer', () => {
       let state = friends(undefined, actions.updateFriend({...bob, isActive: true}))
 
       // Now Bob is inactive
-      state = friends(state, contactActions.toggleActive(bob))
+      state = friends(state, _toggleActive(bob))
       expect(state).toMatchSnapshot()
 
       // Now Bob is active
-      state = friends(state, contactActions.toggleActive(bob))
+      state = friends(state, _toggleActive(bob))
       expect(state).toMatchSnapshot()
     })
   })
