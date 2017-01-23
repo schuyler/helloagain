@@ -1,11 +1,10 @@
 exports[`toggleActive should dispatch a TOGGLE_ACTIVE action 1`] = `
-Array [
-  Object {
-    "friend": Object {
-      "givenName": "Bob",
-      "helloAgainID": "bob-5555",
-    },
-    "type": "TOGGLE_ACTIVE",
+Object {
+  "friend": Object {
+    "familyName": "Dobbs",
+    "givenName": "Bob",
+    "helloAgainID": "bob-dobbs-5555",
   },
-]
+  "type": "TOGGLE_ACTIVE",
+}
 `;
